@@ -14,6 +14,12 @@ namespace Model
         /// <returns></returns>
         public double Volume { get; }
 
+        /// <summary>
+        /// Метод проверки введёного числа.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         protected static double CheckNumber(double number)
         {
             if (number <= 0)

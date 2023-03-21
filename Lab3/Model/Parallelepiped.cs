@@ -74,16 +74,5 @@ namespace Model
                 return Height * Width * Length;
             }
         }
-
-        public Parallelepiped(double height, double width, double length)
-        {
-            Height = height;
-            Width = width;
-            Length = length;
-        }
-
-        public Parallelepiped()
-        { }
-
     }
 }

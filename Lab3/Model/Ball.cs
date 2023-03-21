@@ -35,13 +35,5 @@ namespace Model
                 return (4.0 / 3.0) * Math.PI * Math.Pow(Radius, 3);
             }
         }
-
-        public Ball(double radius)
-        {
-            Radius = radius;
-        }
-
-        public Ball()
-        { }
     }
 }

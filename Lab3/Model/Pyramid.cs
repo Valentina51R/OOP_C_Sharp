@@ -54,15 +54,5 @@ namespace Model
                 return valume;
             }
         }
-
-        public Pyramid(double height, double square)
-        {
-            Height = height;
-            Square = square;
-        }
-
-        public Pyramid()
-        { }
-
     }
 }
