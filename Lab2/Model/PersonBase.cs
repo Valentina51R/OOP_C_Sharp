@@ -2,40 +2,31 @@ using System.Text.RegularExpressions;
 
 namespace Model
 {
+    //TODO: (+)PersonBase в названии файла
     /// <summary>
     /// Класс персоны.
     /// </summary>
-    public class Person
+    public abstract class PersonBase
     {
         /// <summary>
         /// Имя.
         /// </summary>
-        private string _name;
+        protected string _name;
 
         /// <summary>
         /// Фамилия.
         /// </summary>
-        private string _surname;
+        protected string _surname;
 
         /// <summary>
         /// Возраст.
         /// </summary>
-        private int _age;
+        protected int _age;
 
         /// <summary>
         /// Пол.
         /// </summary>
-        private Gender _gender;
-
-        /// <summary>
-        /// Максимальный возраст.
-        /// </summary>
-        private const int _max = 150;
-
-        /// <summary>
-        /// Минимальный возраст.
-        /// </summary>
-        private const int _min = 1;
+        protected Gender _gender;
 
         /// <summary>
         /// Задание имени.
@@ -80,42 +71,14 @@ namespace Model
         /// <summary>
         /// Задание возраста.
         /// </summary>
-        public int Age
-        {
-            get
-            {
-                return _age;
-            }
-            set
-            {
-                if (value > _max || value < _min)
-                {
-                    throw new ArgumentException($"Введён некорректный" +
-                        $" возвраст, введите возраст" +
-                        $" от {_min} до {_max} лет!");
-                }
-                else
-                {
-                    _age = value;
-                }
-            }
-        }
+        public abstract int Age { get; set; }
+
 
         /// <summary>
         /// Задание гендера.
         /// </summary>
-        public Gender Gender
-        {
-            get
-            {
-                return _gender;
-            }
-            set
-            {
-                _gender = value;
-            }
+        public Gender Gender { get; set; }
 
-        }
 
         /// <summary>
         /// Проверка на пустую строку.
@@ -144,18 +107,20 @@ namespace Model
 
         /// <summary>
         /// Метод возвращает информацию о человеке в виде строки.
+        /// Это абстрактный метoд, доступен для переопределения.
         /// </summary>
-        /// <returns>Информацию о человеке в воиде строки.</returns>
-        public string GetInfo()
+        /// <returns>Информацию о человеке в виде строки.</returns>
+        public virtual string GetInfo()
         {
-            return $"Perconname: {_name}, Sername: {_surname}," +
-                $" Age: {_age}, Gender: {_gender}";
+            return $"Name: {Name} {Surname}," +
+               $" Age: {Age}, Gender: {Gender}, ";
         }
+
 
         /// <summary>
         /// Конструктор 1.
         /// </summary>
-        public Person()
+        public PersonBase()
         { }
 
         /// <summary>
@@ -165,12 +130,12 @@ namespace Model
         /// <param name="surname"></param>
         /// <param name="age"></param>
         /// <param name="gender"></param>
-        public Person(string name, string surname, int age, Gender gender)
+        public PersonBase(string name, string surname, int age, Gender gender)
         {
-            _name = name;
-            _surname = surname;
-            _age = age;
-            _gender = gender;
+            Name = name;
+            Surname = surname;
+            Age = age;
+            Gender = gender;
         }
 
         /// <summary>
@@ -198,7 +163,7 @@ namespace Model
         /// Преобразование регистра первой буквы.
         /// </summary>
         /// <returns></returns>
-        public static string ConvertToRightRegister(string surnameOrName)
+        private static string ConvertToRightRegister(string surnameOrName)
         {
             surnameOrName = surnameOrName[0].ToString().ToUpper()
                         + surnameOrName.Substring(1);
@@ -222,7 +187,7 @@ namespace Model
         /// <param name="name"></param>
         /// <param name="surname"></param>
         /// <exception cref="ArgumentException"></exception>
-        public void CheckLanguage(string name, string surname)
+        private void CheckLanguage(string name, string surname)
         {
             Languege nameLang = DefineLanguage(name);
             Languege surnameLang = DefineLanguage(surname);
@@ -238,7 +203,7 @@ namespace Model
         /// </summary>
         /// <param name="str"></param>
         /// <returns> Languege.</returns>
-        public static Languege DefineLanguage(string word)
+        private Languege DefineLanguage(string word)
         {
             Regex latin = new Regex(@"[a-zA-Z]");
             Regex cyrillic = new Regex(@"[а-яА-Я]");
