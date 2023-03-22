@@ -40,17 +40,15 @@ namespace ConsoleApp
 
             switch (person)
             {
-                case Adult:
+                case Adult adult:
                     {
-                        Adult adult = (Adult)person;
                         Console.WriteLine("This is an adult!");
                         Console.WriteLine(adult.MythologicalCreature());
                         break;
                     }
 
-                case Child:
+                case Child child:
                     {
-                        Child child = (Child)person;
                         Console.WriteLine("It's a child!");
                         Console.WriteLine(child.Dishes());
                         break;
