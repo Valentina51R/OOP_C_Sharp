@@ -2,6 +2,7 @@
 
 namespace Model
 {
+    //TODO: rename
     /// <summary>
     /// Класс для создания
     /// фигуры
@@ -31,6 +32,5 @@ namespace Model
                 return number;
             }
         }
-
     }
 }

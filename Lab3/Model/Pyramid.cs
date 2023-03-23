@@ -1,6 +1,7 @@
 
 namespace Model
 {
+    //TODO: XML
     public class Pyramid : IFigureBase
     {
         /// <summary>
@@ -46,7 +47,7 @@ namespace Model
         /// <summary>
         /// Объём пирамиды.
         /// </summary>
-        public double Volume
+        public double Volume//  => (1.0 / 3.0) * Square * Height;
         {
             get
             {

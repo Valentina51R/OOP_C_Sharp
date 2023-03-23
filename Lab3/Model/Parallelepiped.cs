@@ -1,6 +1,7 @@
 
 namespace Model
 {
+    //TODO: XML
     public class Parallelepiped : IFigureBase
     {
         /// <summary>

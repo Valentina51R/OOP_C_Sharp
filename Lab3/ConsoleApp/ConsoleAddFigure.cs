@@ -20,10 +20,10 @@ namespace ConsoleApp
                 number = number.Replace('.', ',');
             }
 
-            bool result = double.TryParse(number,
+            bool isParsed = double.TryParse(number,
                         out double checkNumber);
 
-            if (result != true)
+            if (isParsed != true)
             {
                 throw new ArgumentException("Введите число!");
             }
@@ -152,9 +152,20 @@ namespace ConsoleApp
 
             // Выбор фигуры
             ActionHandler(actionStart, "Фигура");
+            //var figureActionDictionary = new Dictionary<Type, List<(Action, string)>>
+            //{
+            //    {typeof(Ball), actionBall },
+            //    {typeof(Pyramid), actionPyramid },
+            //    {typeof(Parallelepiped), actionParallelepiped },
+            //};
+            //foreach (var action in figureActionDictionary[figure.GetType()])
+            //{
+            //    ActionHandler(action.Item1, action.Item2);
+            //}
 
             switch (figure)
             {
+                //TODO: duplication
                 case Ball:
                     {
                         foreach (var action in actionBall)

@@ -1,6 +1,7 @@
 
 namespace Model
 {
+    //TODO: XML
     public class Ball : IFigureBase
     {
         /// <summary>
