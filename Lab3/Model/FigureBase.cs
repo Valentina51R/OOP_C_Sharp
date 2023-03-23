@@ -2,18 +2,18 @@
 
 namespace Model
 {
-    //TODO: rename
+    //TODO: rename (+)
     /// <summary>
     /// Класс для создания
     /// фигуры
     /// </summary>
-    public interface IFigureBase
+    public abstract class FigureBase
     {
         /// <summary>
         /// Метод расчёта объёма фигуры.
         /// </summary>
         /// <returns></returns>
-        public double Volume { get; }
+        public abstract double Volume { get; }
 
         /// <summary>
         /// Метод проверки введёного числа.

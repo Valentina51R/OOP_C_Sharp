@@ -37,7 +37,7 @@ namespace ConsoleApp
         /// <exception cref="ArgumentException"></exception>
         public static void AddFigure()
         {
-            IFigureBase figure = new Ball();
+            FigureBase figure = new Ball();
 
             Action actionStart = new Action(() =>
             {
@@ -152,47 +152,17 @@ namespace ConsoleApp
 
             // Выбор фигуры
             ActionHandler(actionStart, "Фигура");
-            //var figureActionDictionary = new Dictionary<Type, List<(Action, string)>>
-            //{
-            //    {typeof(Ball), actionBall },
-            //    {typeof(Pyramid), actionPyramid },
-            //    {typeof(Parallelepiped), actionParallelepiped },
-            //};
-            //foreach (var action in figureActionDictionary[figure.GetType()])
-            //{
-            //    ActionHandler(action.Item1, action.Item2);
-            //}
 
-            switch (figure)
+            var figureActionDictionary = new Dictionary<Type, List<(Action, string)>>
             {
-                //TODO: duplication
-                case Ball:
-                    {
-                        foreach (var action in actionBall)
-                        {
-                            ActionHandler(action.Item1, action.Item2);
-                        }
-                        break;
-                    }
+                {typeof(Ball), actionBall },
+                {typeof(Pyramid), actionPyramid },
+                {typeof(Parallelepiped), actionParallelepiped },
+            };
 
-                case Pyramid:
-                    {
-                        foreach (var action in actionPyramid)
-                        {
-                            ActionHandler(action.Item1, action.Item2);
-                        }
-                        break;
-                    }
-                case Parallelepiped:
-                    {
-                        foreach (var action in actionParallelepiped)
-                        {
-                            ActionHandler(action.Item1, action.Item2);
-                        }
-                        break;
-                    }
-                default:
-                    break;
+            foreach (var action in figureActionDictionary[figure.GetType()])
+            {
+                ActionHandler(action.Item1, action.Item2);
             }
         }
 

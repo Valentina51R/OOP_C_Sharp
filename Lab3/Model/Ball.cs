@@ -1,8 +1,11 @@
 
 namespace Model
 {
-    //TODO: XML
-    public class Ball : IFigureBase
+    //TODO: XML (+)
+    /// <summary>
+    /// Метод шара.
+    /// </summary>
+    public class Ball : FigureBase
     {
         /// <summary>
         /// Радиус.
@@ -20,7 +23,7 @@ namespace Model
             }
             set
             {
-                _radius = IFigureBase.CheckNumber(value);
+                _radius = CheckNumber(value);
             }
         }
 
@@ -29,7 +32,7 @@ namespace Model
         /// Расчёт объёма шара
         /// </summary>
         /// <returns>valume.</returns>
-        public double Volume
+        public override double Volume
         {
             get
             {

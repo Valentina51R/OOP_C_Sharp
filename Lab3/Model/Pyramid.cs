@@ -1,8 +1,11 @@
 
 namespace Model
 {
-    //TODO: XML
-    public class Pyramid : IFigureBase
+    //TODO: XML (+)
+    /// <summary>
+    /// Класс пирамиды.
+    /// </summary>
+    public class Pyramid : FigureBase
     {
         /// <summary>
         /// Площадь.
@@ -25,7 +28,7 @@ namespace Model
             }
             set
             {
-                _square = IFigureBase.CheckNumber(value);
+                _square = CheckNumber(value);
             }
         }
 
@@ -40,14 +43,14 @@ namespace Model
             }
             set
             {
-                _height = IFigureBase.CheckNumber(value);
+                _height = CheckNumber(value);
             }
         }
 
         /// <summary>
         /// Объём пирамиды.
         /// </summary>
-        public double Volume//  => (1.0 / 3.0) * Square * Height;
+        public override double Volume//  => (1.0 / 3.0) * Square * Height;
         {
             get
             {
