@@ -66,21 +66,20 @@ namespace ConsoleApp
                 switch (who)
                 {
                     case 1:
-                    {
-                        newperson = new Adult();
-                        break;
-                    }
+                        {
+                            newperson = new Adult();
+                            break;
+                        }
 
                     case 2:
-                    {
-                        newperson = new Child();
-                        break;
-                    }
+                        {
+                            newperson = new Child();
+                            break;
+                        }
                     default:
-                    {
-                        throw new ArgumentException("Введите для взрослого - 1, для ребёнка - 2: ");
-                        break;
-                    }
+                        {
+                            throw new ArgumentException("Введите для взрослого - 1, для ребёнка - 2: ");
+                        }
                 }
             });
 
@@ -191,58 +190,17 @@ namespace ConsoleApp
             {
                 (new Action(() =>
                 {
-                    //TODO: duplication
+                    //TODO: duplication (+)
                     Child newpersonChild = (Child)newperson;
-                    Console.Write("У ребёнка есть информация о матери?" +
-                        " (1 - есть (будет поднята из архива), 0 - нет информации):");
-                    ushort haveOrNot = ushort.Parse(Console.ReadLine());
-                    switch (haveOrNot)
-                    {
-                        case 1:
-                            {
-                                newpersonChild.Mother = RandomPerson.GetRandomAdult
-                                (MaritalStatus.Married, newpersonChild.Father, Gender.Female);
-                                break;
-                            }
-                        case 0:
-                            {
-                                break;
-                            }
-                        default:
-                            {
-                                throw new ArgumentException
-                                    ("Введите 1 - есть есть информация о матери" +
-                                    ", 0 - нет информации.");
-                            }
-                    }
+                    newpersonChild.Mother = CheckParents(newpersonChild, "о матери", Gender.Female);
+
                 }), "Mother"),
-                //TODO: duplication
+                //TODO: duplication(+)
                 (new Action(() =>
                 {
                     Child newpersonChild = (Child)newperson;
-                    Console.Write("У ребёнка есть информация об отце?" +
-                        " (1 - есть (будет поднята из архива), 0 - нет информации):");
-                    ushort  haveOrNot = ushort.Parse(Console.ReadLine());
-                    switch (haveOrNot)
-                    {
-                        case 1:
-                            {
-                                newpersonChild.Father = RandomPerson.GetRandomAdult
-                                (MaritalStatus.Married, newpersonChild.Mother, Gender.Male);
-                                break;
-                            }
-                        case 0:
-                            {
-                                break;
-                            }
-                        default:
-                            {
-                                throw new ArgumentException
-                                ("Введите 1 - есть информация об отце," +
-                                " 0 - нет информации.");
-                                break;
-                            }
-                    }
+                    newpersonChild.Father = CheckParents(newpersonChild, "об отце", Gender.Male);
+
                 }), "Father"),
                 (new Action(() =>
                 {
@@ -272,7 +230,6 @@ namespace ConsoleApp
                             {
                                 throw new ArgumentException
                                 ("Введите 1 - посещает школу/сад, 0 - нет.");
-                                break;
                             }
                     }
                 }), "Institution")
@@ -346,5 +303,40 @@ namespace ConsoleApp
                 }
             }
         }
+
+        /// <summary>
+        /// Метод ввода родителей.
+        /// </summary>
+        /// <param name="newpersonChild"></param>
+        /// <param name="parent"></param>
+        /// <exception cref="ArgumentException"></exception>
+        private static Adult? CheckParents(Child newpersonChild, string parent, Gender gender)
+        {
+            Console.Write($"У ребёнка есть информация {parent}?" +
+                        " (1 - есть (будет поднята из архива), 0 - нет информации):");
+            ushort haveOrNot = ushort.Parse(Console.ReadLine());
+            switch (haveOrNot)
+            {
+                case 1:
+                    {
+                        return gender == Gender.Male
+                            ? RandomPerson.GetRandomAdult
+                        (MaritalStatus.Married, newpersonChild.Mother, gender)
+                            : RandomPerson.GetRandomAdult
+                        (MaritalStatus.Married, newpersonChild.Father, gender);
+                    }
+                case 0:
+                    {
+                        return null;
+                    }
+                default:
+                    {
+                        throw new ArgumentException
+                        ($"Введите 1 - есть информация {parent}," +
+                        " 0 - нет информации.");
+                    }
+            }
+        }
+
     }
 }

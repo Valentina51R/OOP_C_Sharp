@@ -7,21 +7,21 @@ namespace Model
     /// </summary>
     public class Child : PersonBase
     {
-        //TODO: rename
+        //TODO: rename (+)
         /// <summary>
-        /// Минимальный возраст ребёнка
+        /// Минимальный возраст
         /// </summary>
-        public const int MinChildAge = 1;
+        public override int MinAge => 18;
 
         /// <summary>
-        /// Максимальный возраст ребёнка
+        /// Максимальный возраст
         /// </summary>
-        public const int MaxChildAge = 18;
+        public override int MaxAge => 150;
 
         /// <summary>
         /// Садик / шкала.
         /// </summary>
-        private string _institution;
+        private string? _institution;
 
         /// <summary>
         /// Ввод возраста ребёнка.
@@ -34,11 +34,11 @@ namespace Model
             }
             set
             {
-                if (value > MaxChildAge || value < MinChildAge)
+                if (value > MaxAge || value < MinAge)
                 {
                     throw new ArgumentException($"Введён некорректный" +
                         $" возвраст ребёнка, введите возраст" +
-                        $" от {MinChildAge} до {MaxChildAge} лет!");
+                        $" от {MinAge} до {MaxAge} лет!");
                 }
                 else
                 {
@@ -47,17 +47,16 @@ namespace Model
             }
         }
 
-
         /// <summary>
         /// Задание матери.
         /// </summary>
-        public Adult Mother { get; set; }
+        public Adult? Mother { get; set; }
 
 
         /// <summary>
         /// Задание отца.
         /// </summary>
-        public Adult Father { get; set; }
+        public Adult? Father { get; set; }
 
 
         /// <summary>
@@ -81,7 +80,7 @@ namespace Model
         /// <param name="perent"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        private string CheckParents(Adult perent, string name = "Mother")
+        private static string CheckParents(Adult perent, string name = "Mother")
         {
             if (perent != null)
             {
@@ -97,7 +96,7 @@ namespace Model
         /// <summary>
         /// Метод получения информации
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Информация о ребёнке.</returns>
         public override string GetInfo()
         {
             string personInfo = base.GetInfo();
@@ -122,7 +121,7 @@ namespace Model
         /// <summary>
         /// Определение любимого блюда ребёнка.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>строка.</returns>
         public string Dishes()
         {
             string[] meals = {

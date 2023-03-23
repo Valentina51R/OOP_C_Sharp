@@ -8,6 +8,16 @@ namespace Model
     public abstract class PersonBase
     {
         /// <summary>
+        /// 
+        /// </summary>
+        public abstract int MinAge { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public abstract int MaxAge { get; }
+
+        /// <summary>
         /// Имя.
         /// </summary>
         protected string _name;
@@ -87,7 +97,7 @@ namespace Model
         /// <returns></returns>
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.ArgumentException"></exception>
-        private string CheckString(string value, string propertiname)
+        private static string CheckString(string value, string propertiname)
         {
             if (value == null)
             {

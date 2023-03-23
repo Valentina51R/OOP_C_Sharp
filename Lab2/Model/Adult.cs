@@ -8,14 +8,14 @@ namespace Model
     public class Adult : PersonBase
     {
         /// <summary>
-        /// Минимальный возраст взрослого
+        /// Минимальный возраст
         /// </summary>
-        public const int MinAdultAge = 18;
+        public override int MinAge => 18;
 
         /// <summary>
-        /// Максимальный возраст взрослого
+        /// Максимальный возраст
         /// </summary>
-        public const int MaxAdultAge = 150;
+        public override int MaxAge => 150;
 
         /// <summary>
         /// Минимальный номер паспорта
@@ -110,25 +110,17 @@ namespace Model
             set
             {
 
-                if (value > MaxAdultAge || value < MinAdultAge)
+                if (value > MaxAge || value < MinAge)
                 {
                     throw new ArgumentException($"Введён некорректный" +
                         $" возвраст взрослого, введите возраст" +
-                        $" от {MinAdultAge} до {MaxAdultAge} лет!");
+                        $" от {MinAge} до {MaxAge} лет!");
                 }
                 else
                 {
                     _age = value;
                 }
             }
-        }
-
-        /// <summary>
-        /// Пустой конструктор
-        /// </summary>
-        public Adult() : base()
-        {
-
         }
 
         /// <summary>
@@ -161,7 +153,7 @@ namespace Model
         /// <summary>
         /// Метод для определния типа существа.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>строка.</returns>
         public string MythologicalCreature()
         {
             string[] essence = {
@@ -172,6 +164,5 @@ namespace Model
 
             return $"The {Name} {Surname} is a {type}";
         }
-
     }
 }
