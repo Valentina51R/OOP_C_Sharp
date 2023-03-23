@@ -19,24 +19,8 @@ namespace ConsoleApp
 
             for (int i = 0; i < count; i++)
             {
-                switch (people.FindByIndex(i))
-                {
-                    case Adult adult:
-                        {
-                            Console.WriteLine($"\nPerson №{i + 1}:");
-                            Console.WriteLine(adult.GetInfo());
-                            break;
-                        }
-
-                    case Child child:
-                        {
-                            Console.WriteLine($"\nPerson №{i + 1}:");
-                            Console.WriteLine(child.GetInfo());
-                            break;
-                        }
-                    default:
-                        break;
-                }
+                Console.WriteLine($"\nPerson №{i + 1}:");
+                Console.WriteLine(people.FindByIndex(i).GetInfo());
             }
         }
 
