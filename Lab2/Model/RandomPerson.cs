@@ -16,19 +16,22 @@ namespace Model
         /// <summary>
         /// Массив строк мужских имён
         /// </summary>
-        private static string[] _menNames = { "Damon", "Jeremy", "Matt", "Tyler",
+        private static string[] _menNames = {
+                "Damon", "Jeremy", "Matt", "Tyler",
                 "Klaus", "Stefan", "Richard", "Kol" };
 
         /// <summary>
         /// Массив строк женских имён
         /// </summary>
-        private static string[] _wemenNames = { "Elena", "Katherine", "Jenna", "Bonnie",
+        private static string[] _wemenNames = {
+                "Elena", "Katherine", "Jenna", "Bonnie",
                 "Caroline", "Vicki", "Rebekah", "Lexi" };
 
         /// <summary>
         /// Массив строк фамилий
         /// </summary>
-        private static string[] _surnames = { "Bennet", "Gilbert", "Pierce", "Salvatore",
+        private static string[] _surnames = {
+                "Bennet", "Gilbert", "Pierce", "Salvatore",
                 "Sommers", "Forbes", "Donovan", "Lockwood" };
 
         //TODO: (+)XML
@@ -55,7 +58,8 @@ namespace Model
         /// Создание рандомного человека
         /// </summary>
         /// <returns></returns>
-        public static void GetRandomPerson(PersonBase person, Gender gender = Gender.Default)
+        public static void GetRandomPerson(PersonBase person,
+            Gender gender = Gender.Default)
         {
 
             if (gender == Gender.Default)
@@ -99,11 +103,13 @@ namespace Model
             {
                 if (randomAdult.Gender == Gender.Male)
                 {
-                    randomAdult.Partner = GetRandomAdult(MaritalStatus.Married, randomAdult, Gender.Female);
+                    randomAdult.Partner = GetRandomAdult(
+                        MaritalStatus.Married, randomAdult, Gender.Female);
                 }
                 else
                 {
-                    randomAdult.Partner = GetRandomAdult(MaritalStatus.Married, randomAdult, Gender.Male);
+                    randomAdult.Partner = GetRandomAdult(
+                        MaritalStatus.Married, randomAdult, Gender.Male);
                 }
             }
             else

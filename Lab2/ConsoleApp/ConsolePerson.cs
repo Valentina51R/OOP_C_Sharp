@@ -94,7 +94,8 @@ namespace ConsoleApp
                         }
                     default:
                         {
-                            throw new ArgumentException("Введите для взрослого - 1, для ребёнка - 2: ");
+                            throw new ArgumentException("Введите " +
+                                "для взрослого - 1, для ребёнка - 2: ");
                             break;
                         }
                 }
@@ -157,7 +158,8 @@ namespace ConsoleApp
                     Adult newpersonAdult = (Adult)newperson;
                     if(result != true)
                     {
-                        throw new ArgumentException("Номер паспорта введён некорректно," +
+                        throw new ArgumentException(
+                            "Номер паспорта введён некорректно," +
                             " вводите только цифры!");
                     }
                     newpersonAdult.Рassport = passport;
@@ -179,7 +181,8 @@ namespace ConsoleApp
                         case 1:
                             {
                                 newpersonAdult.MaritalStatus = MaritalStatus.Married;
-                                Console.WriteLine("Информация о партнёре поднимается из архива автоматически.");
+                                Console.WriteLine("Информация о партнёре" +
+                                    " поднимается из архива автоматически.");
                                 _ = Console.ReadKey();
                                 if (newpersonAdult.Gender == Gender.Male)
                                 {
@@ -275,12 +278,14 @@ namespace ConsoleApp
                                 if (newpersonChild.Age < 8)
                                 {
                                     Console.Write("Введите наименование детского сада: ");
-                                    newpersonChild.Institution = "Детский сад \"" + Console.ReadLine() + "\"";
+                                    newpersonChild.Institution = "Детский сад \""
+                                    + Console.ReadLine() + "\"";
                                 }
                                 else
                                 {
                                     Console.Write("Введите наименование школы: ");
-                                    newpersonChild.Institution = "Школа \"" + Console.ReadLine() + "\"";
+                                    newpersonChild.Institution = "Школа \""
+                                    + Console.ReadLine() + "\"";
                                 }
                                 break;
                             }
