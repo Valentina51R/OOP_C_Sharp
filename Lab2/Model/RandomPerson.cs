@@ -34,8 +34,6 @@ namespace Model
                 "Bennet", "Gilbert", "Pierce", "Salvatore",
                 "Sommers", "Forbes", "Donovan", "Lockwood" };
 
-        //TODO: (+)XML
-
         /// <summary>
         /// Метод создания взрослого или ребёнка
         /// </summary>
@@ -53,7 +51,6 @@ namespace Model
             }
         }
 
-        // TODO: (+)передавать тип Gender 
         /// <summary>
         /// Создание рандомного человека
         /// </summary>
@@ -87,9 +84,8 @@ namespace Model
         /// Создание рандомного взрослого
         /// </summary>
         /// <returns></returns>
-        public static Adult GetRandomAdult(MaritalStatus status
-            //TODO: (+)RSDN
-            = MaritalStatus.Single, Adult partner = null, Gender gender = Gender.Default)
+        public static Adult GetRandomAdult(MaritalStatus status = MaritalStatus.Single,
+            Adult partner = null, Gender gender = Gender.Default)
         {
             Adult randomAdult = new Adult();
             GetRandomPerson(randomAdult, gender);
@@ -134,7 +130,6 @@ namespace Model
             return randomAdult;
         }
 
-        //TODO: (+)XML
         /// <summary>
         /// Метод создания рандомного ребёнка.
         /// </summary>

@@ -7,6 +7,7 @@ namespace Model
     /// </summary>
     public class Child : PersonBase
     {
+        //TODO: rename
         /// <summary>
         /// Минимальный возраст ребёнка
         /// </summary>

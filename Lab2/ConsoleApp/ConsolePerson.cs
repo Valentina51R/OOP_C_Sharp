@@ -66,21 +66,21 @@ namespace ConsoleApp
                 switch (who)
                 {
                     case 1:
-                        {
-                            newperson = new Adult();
-                            break;
-                        }
+                    {
+                        newperson = new Adult();
+                        break;
+                    }
 
                     case 2:
-                        {
-                            newperson = new Child();
-                            break;
-                        }
+                    {
+                        newperson = new Child();
+                        break;
+                    }
                     default:
-                        {
-                            throw new ArgumentException("Введите для взрослого - 1, для ребёнка - 2: ");
-                            break;
-                        }
+                    {
+                        throw new ArgumentException("Введите для взрослого - 1, для ребёнка - 2: ");
+                        break;
+                    }
                 }
             });
 
@@ -165,16 +165,12 @@ namespace ConsoleApp
                                 newpersonAdult.MaritalStatus = MaritalStatus.Married;
                                 Console.WriteLine("Информация о партнёре поднимается из архива автоматически.");
                                 _ = Console.ReadKey();
-                                if (newpersonAdult.Gender == Gender.Male)
-                                {
-                                    newpersonAdult.Partner = RandomPerson.GetRandomAdult
-                                    (MaritalStatus.Married, newpersonAdult, Gender.Female);
-                                }
-                                else
-                                {
-                                    newpersonAdult.Partner = RandomPerson.GetRandomAdult
-                                    (MaritalStatus.Married, newpersonAdult, Gender.Male);
-                                }
+
+                                var randomPersonGender = newpersonAdult.Gender == Gender.Male
+                                    ? Gender.Female
+                                    : Gender.Male;
+                                newpersonAdult.Partner = RandomPerson.GetRandomAdult
+                                    (MaritalStatus.Married, newpersonAdult, randomPersonGender);
                                 break;
                             }
                         case 0:
@@ -185,8 +181,7 @@ namespace ConsoleApp
                         default:
                             {
                                 throw new ArgumentException
-                                ("Введите 1 - в браке, 0 - одинок: ");
-                                break;
+                                    ("Введите 1 - в браке, 0 - одинок: ");
                             }
                     }
                 }), "maritalstatus")
@@ -196,6 +191,7 @@ namespace ConsoleApp
             {
                 (new Action(() =>
                 {
+                    //TODO: duplication
                     Child newpersonChild = (Child)newperson;
                     Console.Write("У ребёнка есть информация о матери?" +
                         " (1 - есть (будет поднята из архива), 0 - нет информации):");
@@ -215,12 +211,12 @@ namespace ConsoleApp
                         default:
                             {
                                 throw new ArgumentException
-                                ("Введите 1 - есть есть информация о матери" +
-                                ", 0 - нет информации.");
-                                break;
+                                    ("Введите 1 - есть есть информация о матери" +
+                                    ", 0 - нет информации.");
                             }
                     }
                 }), "Mother"),
+                //TODO: duplication
                 (new Action(() =>
                 {
                     Child newpersonChild = (Child)newperson;

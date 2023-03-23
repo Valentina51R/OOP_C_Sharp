@@ -2,7 +2,6 @@ using System.Text.RegularExpressions;
 
 namespace Model
 {
-    //TODO: (+)PersonBase в названии файла
     /// <summary>
     /// Класс персоны.
     /// </summary>
@@ -120,7 +119,7 @@ namespace Model
         /// <summary>
         /// Конструктор 1.
         /// </summary>
-        public PersonBase()
+        protected PersonBase()
         { }
 
         /// <summary>
@@ -130,7 +129,7 @@ namespace Model
         /// <param name="surname"></param>
         /// <param name="age"></param>
         /// <param name="gender"></param>
-        public PersonBase(string name, string surname, int age, Gender gender)
+        protected PersonBase(string name, string surname, int age, Gender gender)
         {
             Name = name;
             Surname = surname;
