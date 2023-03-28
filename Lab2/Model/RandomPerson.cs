@@ -11,33 +11,33 @@ namespace Model
         /// <summary>
         /// Рандом.
         /// </summary>
-        private static Random _random = new Random();
+        private static Random _random = new();
 
         /// <summary>
-        /// Массив строк мужских имён
+        /// Массив строк мужских имён.
         /// </summary>
-        private static string[] _menNames = {
+        private static readonly string[] _menNames = {
                 "Damon", "Jeremy", "Matt", "Tyler",
                 "Klaus", "Stefan", "Richard", "Kol" };
 
         /// <summary>
-        /// Массив строк женских имён
+        /// Массив строк женских имён.
         /// </summary>
-        private static string[] _wemenNames = {
+        private static readonly string[] _wemenNames = {
                 "Elena", "Katherine", "Jenna", "Bonnie",
                 "Caroline", "Vicki", "Rebekah", "Lexi" };
 
         /// <summary>
-        /// Массив строк фамилий
+        /// Массив строк фамилий.
         /// </summary>
-        private static string[] _surnames = {
+        private static readonly string[] _surnames = {
                 "Bennet", "Gilbert", "Pierce", "Salvatore",
                 "Sommers", "Forbes", "Donovan", "Lockwood" };
 
         /// <summary>
         /// Метод создания взрослого или ребёнка
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Person.</returns>
         public static PersonBase GetRandomAnyPerson()
         {
             var who = _random.Next(0, 2);
@@ -54,7 +54,8 @@ namespace Model
         /// <summary>
         /// Создание рандомного человека
         /// </summary>
-        /// <returns></returns>
+        /// <param name="person">Партнёр.</param>
+        /// <param name="gender">Пол.</param>
         public static void GetRandomPerson(PersonBase person,
             Gender gender = Gender.Default)
         {
@@ -83,9 +84,9 @@ namespace Model
         /// <summary>
         /// Создание рандомного взрослого
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Adult.</returns>
         public static Adult GetRandomAdult(MaritalStatus status = MaritalStatus.Single,
-            Adult partner = null, Gender gender = Gender.Default)
+            Adult? partner = null, Gender gender = Gender.Default)
         {
             Adult randomAdult = new Adult();
             GetRandomPerson(randomAdult, gender);
@@ -133,7 +134,7 @@ namespace Model
         /// <summary>
         /// Метод создания рандомного ребёнка.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Child.</returns>
         public static Child GetRandomChild()
         {
             Child randomChild = new Child();

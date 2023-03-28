@@ -8,12 +8,12 @@ namespace Model
     public abstract class PersonBase
     {
         /// <summary>
-        /// 
+        /// Минимальный возраст персоны.
         /// </summary>
         public abstract int MinAge { get; }
 
         /// <summary>
-        /// 
+        /// Максимальный возраст персоны.
         /// </summary>
         public abstract int MaxAge { get; }
 
@@ -92,9 +92,9 @@ namespace Model
         /// <summary>
         /// Проверка на пустую строку.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="propertiname"></param>
-        /// <returns></returns>
+        /// <param name="value">Строка.</param>
+        /// <param name="propertiname">Строка.</param>
+        /// <returns>Строку.</returns>
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.ArgumentException"></exception>
         private static string CheckString(string value, string propertiname)
@@ -135,10 +135,10 @@ namespace Model
         /// <summary>
         /// Конструктор 2.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="surname"></param>
-        /// <param name="age"></param>
-        /// <param name="gender"></param>
+        /// <param name="name">Имя.</param>
+        /// <param name="surname">Фамилия.</param>
+        /// <param name="age">Возраст.</param>
+        /// <param name="gender">Пол.</param>
         protected PersonBase(string name, string surname, int age, Gender gender)
         {
             Name = name;
@@ -151,8 +151,8 @@ namespace Model
         /// Проверка на ввод имени или фамилии на одном языке.
         /// Возможность ввода двойного имени и фамилии.
         /// </summary>
-        /// <param name="nameOrSurname"></param>
-        /// <returns></returns>
+        /// <param name="nameOrSurname">Имя или фамилия.</param>
+        /// <returns>Строку.</returns>
         /// <exception cref="FormatException"></exception>
         public static string CheckNameSurname(string nameOrSurname)
         {
@@ -171,11 +171,11 @@ namespace Model
         /// <summary>
         /// Преобразование регистра первой буквы.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Имя/фамилия с верным регистром.</returns>
         private static string ConvertToRightRegister(string surnameOrName)
         {
             surnameOrName = surnameOrName[0].ToString().ToUpper()
-                        + surnameOrName.Substring(1);
+                        + surnameOrName.Substring(1).ToLower();
 
             Regex regex1 = new Regex(@"[-]");
             if (regex1.IsMatch(surnameOrName))
@@ -183,8 +183,8 @@ namespace Model
                 string[] words = surnameOrName.Split(new char[] { '-' });
                 string word1 = words[0];
                 string word2 = words[1];
-                word1 = word1[0].ToString().ToUpper() + word1.Substring(1);
-                word2 = word2[0].ToString().ToUpper() + word2.Substring(1);
+                word1 = word1[0].ToString().ToUpper() + word1.Substring(1).ToLower();
+                word2 = word2[0].ToString().ToUpper() + word2.Substring(1).ToLower();
                 surnameOrName = word1 + "-" + word2;
             }
             return surnameOrName;
@@ -193,10 +193,11 @@ namespace Model
         /// <summary>
         /// Сравнения языка имени и фамилии.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="surname"></param>
-        /// <exception cref="ArgumentException"></exception>
-        private void CheckLanguage(string name, string surname)
+        /// <param name="name">Имя.</param>
+        /// <param name="surname">Фамилия.</param>
+        /// <exception cref="ArgumentException">
+        /// Имя и фамилия имеют разный язык.</exception>
+        private static void CheckLanguage(string name, string surname)
         {
             Languege nameLang = DefineLanguage(name);
             Languege surnameLang = DefineLanguage(surname);
@@ -210,9 +211,10 @@ namespace Model
         /// <summary>
         /// Проверка на язык.
         /// </summary>
-        /// <param name="str"></param>
-        /// <returns> Languege.</returns>
-        private Languege DefineLanguage(string word)
+        /// <param name="word">Строка.</param>
+        /// <returns>Languege.</returns>
+        /// <exception cref="ArgumentException"></exception>
+        private static Languege DefineLanguage(string word)
         {
             Regex latin = new Regex(@"[a-zA-Z]");
             Regex cyrillic = new Regex(@"[а-яА-Я]");

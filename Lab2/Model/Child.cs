@@ -3,23 +3,23 @@
 namespace Model
 {
     /// <summary>
-    /// Класс для описания ребёнка
+    /// Класс для описания ребёнка.
     /// </summary>
     public class Child : PersonBase
     {
         //TODO: rename (+)
         /// <summary>
-        /// Минимальный возраст
+        /// Минимальный возраст.
         /// </summary>
-        public override int MinAge => 18;
+        public override int MinAge => 0;
 
         /// <summary>
-        /// Максимальный возраст
+        /// Максимальный возраст.
         /// </summary>
-        public override int MaxAge => 150;
+        public override int MaxAge => 17;
 
         /// <summary>
-        /// Садик / шкала.
+        /// Садик / школа.
         /// </summary>
         private string? _institution;
 
@@ -77,19 +77,19 @@ namespace Model
         /// <summary>
         /// Проверка есть ли родитель.
         /// </summary>
-        /// <param name="perent"></param>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        private static string CheckParents(Adult perent, string name = "Mother")
+        /// <param name="perent">Партнёр.</param>
+        /// <param name="who">Строка.</param>
+        /// <returns>Информация о родителе в виде строки.</returns>
+        private static string CheckParents(Adult? perent, string who = "Mother")
         {
             if (perent != null)
             {
-                return $"\n{name}: {perent.Name} " +
+                return $"\n{who}: {perent.Name} " +
                     $"{perent.Surname}, ";
             }
             else
             {
-                return $"\nNo information about the {name}. ";
+                return $"\nNo information about the {who}. ";
             }
         }
 

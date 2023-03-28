@@ -8,19 +8,19 @@ namespace Model
     public class Adult : PersonBase
     {
         /// <summary>
-        /// Минимальный возраст
+        /// Минимальный возраст.
         /// </summary>
         public override int MinAge => 18;
 
         /// <summary>
-        /// Максимальный возраст
+        /// Максимальный возраст.
         /// </summary>
         public override int MaxAge => 150;
 
         /// <summary>
         /// Минимальный номер паспорта
         /// </summary>
-        public const int MinPassportNumber = 100000000;
+        public const int MinPassportNumber = 000000001;
 
         /// <summary>
         /// Максимальный номер паспорта
@@ -35,7 +35,7 @@ namespace Model
         /// <summary>
         /// супруг
         /// </summary>
-        private Adult _partner;
+        private Adult? _partner;
 
         /// <summary>
         /// Задание паспорта
@@ -95,7 +95,7 @@ namespace Model
         /// <summary>
         /// Задание места работы.
         /// </summary>
-        public string Job { get; set; }
+        public string? Job { get; set; }
 
 
         /// <summary>
