@@ -9,17 +9,18 @@ namespace Model
     /// </summary>
     public abstract class FigureBase
     {
+
         /// <summary>
         /// Метод расчёта объёма фигуры.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Volume.</returns>
         public abstract double Volume { get; }
 
         /// <summary>
         /// Метод проверки введёного числа.
         /// </summary>
         /// <param name="number"></param>
-        /// <returns></returns>
+        /// <returns> Число.</returns>
         /// <exception cref="ArgumentException"></exception>
         protected static double CheckNumber(double number)
         {

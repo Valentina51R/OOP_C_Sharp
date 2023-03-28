@@ -50,13 +50,6 @@ namespace Model
         /// <summary>
         /// Объём пирамиды.
         /// </summary>
-        public override double Volume//  => (1.0 / 3.0) * Square * Height;
-        {
-            get
-            {
-                double valume = (1.0 / 3.0) * Square * Height;
-                return valume;
-            }
-        }
+        public override double Volume => (1.0 / 3.0) * Square * Height;
     }
 }

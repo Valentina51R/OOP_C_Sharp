@@ -32,7 +32,7 @@ namespace ConsoleApp
         }
 
         /// <summary>
-        /// Метод добавления парметров фигуры
+        /// Метод добавления парметров фигуры.
         /// </summary>
         /// <exception cref="ArgumentException"></exception>
         public static void AddFigure()

@@ -31,13 +31,8 @@ namespace Model
         /// <summary>
         /// Расчёт объёма шара
         /// </summary>
-        /// <returns>valume.</returns>
-        public override double Volume
-        {
-            get
-            {
-                return (4.0 / 3.0) * Math.PI * Math.Pow(Radius, 3);
-            }
-        }
+        /// <returns>volume.</returns>
+        public override double Volume =>
+            (4.0 / 3.0) * Math.PI * Math.Pow(Radius, 3);
     }
 }

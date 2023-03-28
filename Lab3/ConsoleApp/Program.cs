@@ -13,12 +13,15 @@ namespace ConsoleApp
         private static void Main()
         {
             Console.WriteLine("\t\tВас приветсвует программа расчёта объёма фогур.");
+            Console.WriteLine($"Max value = {double.MaxValue}");
+            Console.WriteLine($"Min value = {double.MinValue}");
 
             while (true)
             {
 
                 Console.Write("Хотите расчитать объём фигуры - введите 1.\n" +
                     "Хотите закончить выполнение программы - введите 2.\nВводите: ");
+                //TODO: переименовать
                 bool result = short.TryParse(Console.ReadLine(),
                             out short action);
                 if (result != true)
