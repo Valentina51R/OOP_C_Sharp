@@ -3,7 +3,7 @@ namespace Model
 {
     //TODO: XML (+)
     /// <summary>
-    /// Метод шара.
+    /// Класс шара.
     /// </summary>
     public class Ball : FigureBase
     {

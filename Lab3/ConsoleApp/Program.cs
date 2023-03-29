@@ -21,10 +21,9 @@ namespace ConsoleApp
 
                 Console.Write("Хотите расчитать объём фигуры - введите 1.\n" +
                     "Хотите закончить выполнение программы - введите 2.\nВводите: ");
-                //TODO: переименовать
-                bool result = short.TryParse(Console.ReadLine(),
+                bool number = short.TryParse(Console.ReadLine(),
                             out short action);
-                if (result != true)
+                if (number != true)
                 {
                     Console.WriteLine("Введите число 1 или 2!");
                 }
