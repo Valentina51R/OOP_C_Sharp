@@ -192,13 +192,11 @@ namespace ConsoleApp
             {
                 (new Action(() =>
                 {
-                    //TODO: duplication (+)
                     Child newpersonChild = (Child)newperson;
                     newpersonChild.Mother = CheckParents
                     (newpersonChild, "о матери", Gender.Female);
 
                 }), "Mother"),
-                //TODO: duplication(+)
                 (new Action(() =>
                 {
                     Child newpersonChild = (Child)newperson;
