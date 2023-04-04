@@ -45,7 +45,7 @@ namespace ConsoleApp
                     $"2 - пирамиды,\n3 - параллелепипед." +
                     $"\nРасчёт объёма фигуры:");
 
-                int who = int.Parse(Console.ReadLine());
+                bool isParsed = int.TryParse(Console.ReadLine(), out int who);
 
                 switch (who)
                 {
@@ -68,7 +68,6 @@ namespace ConsoleApp
                     default:
                         {
                             throw new ArgumentException("Введите корректно.");
-                            break;
                         }
                 }
             });
