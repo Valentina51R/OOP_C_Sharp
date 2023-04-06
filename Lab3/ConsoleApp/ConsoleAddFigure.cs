@@ -68,7 +68,8 @@ namespace ConsoleApp
                         }
                     default:
                         {
-                            throw new ArgumentException("Введите корректный номер фигуры.");
+                            throw new ArgumentException
+                            ("Введите корректный номер фигуры.");
                         }
                 }
             });
@@ -85,7 +86,8 @@ namespace ConsoleApp
                 (new Action(() =>
                 {
                     Ball ball1 = (Ball)figure;
-                    Console.WriteLine($"Объём шара: {Roundnumber(figure.Volume)}\n");
+                    Console.WriteLine($"Объём шара: " +
+                        $"{Math.Round(figure.Volume, 3)}\n");
                     _ = Console.ReadKey();
                 }), "объёма шара")
             };
@@ -108,7 +110,8 @@ namespace ConsoleApp
                 }), "площади основания пирамиды"),
                 (new Action(() =>
                 {
-                    Console.WriteLine($"Объём пирамиды: {Roundnumber(figure.Volume)}\n");
+                    Console.WriteLine($"Объём пирамиды: " +
+                        $"{Math.Round(figure.Volume, 3)}\n");
                     _ = Console.ReadKey();
 
                 }), "объема пирамиды")
@@ -141,7 +144,7 @@ namespace ConsoleApp
                 (new Action(() =>
                 {
                     Console.WriteLine($"Объём параллелепипеда:" +
-                        $" {Roundnumber(figure.Volume)}\n");
+                        $" {Math.Round(figure.Volume, 3)}\n");
                     _ = Console.ReadKey();
 
                 }), "объема параллелепипеда")
@@ -188,16 +191,6 @@ namespace ConsoleApp
 
                 }
             }
-        }
-
-        /// <summary>
-        /// Метод округления числа.
-        /// </summary>
-        /// <param name="number"></param>
-        /// <returns>Число округленное.</returns>
-        private static double Roundnumber(double number)
-        {
-            return Math.Round(number, 3);
         }
     }
 }
