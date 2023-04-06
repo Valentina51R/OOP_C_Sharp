@@ -14,12 +14,16 @@ namespace WinFormsApp1
         {
             InitializeComponent();
 
-            string[] countries = { "Бразилия", "Аргентина", "Чили", "Уругвай", "Колумбия" };
-            listBox1.Items.AddRange(countries);
+            string[] figures = { "Элемент списка 1", "Элемент списка 2"};
+            listBox1.Items.AddRange(figures);
 
-            FigureBase ball = new Ball(85);
+            FigureBase ball = new Ball(8);
+            FigureBase parallelepiped = new Parallelepiped(8.6d, 7, 9);
+            FigureBase pyramid = new Pyramid(8, 7);
 
             listBox1.Items.Add(ball.GetInfo());
+            listBox1.Items.Add(parallelepiped.GetInfo());
+            listBox1.Items.Add(pyramid.GetInfo());
 
         }
 

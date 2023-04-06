@@ -65,6 +65,19 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Консруктор.
+        /// </summary>
+        /// <param name="radius"></param>
+        public Parallelepiped(double height, double width, double lenght)
+        {
+            Height = height;
+            Width = width;
+            Length = lenght;
+        }
+
+        public Parallelepiped()
+        { }
 
         /// <summary>
         /// Объём параллелепипеда
@@ -83,8 +96,8 @@ namespace Model
         /// <returns></returns>
         public override string GetInfo()
         {
-            return $"Параллелепипед с параметрами:" +
-                $" {Height} * {Width} * {Length}\n имеет объём {Volume}.";
+            return $"Параллелепипед:" +
+                $" {Height} * {Width} * {Length}, V = {Math.Round(Volume, 3)}.";
         }
     }
 }

@@ -23,8 +23,31 @@ namespace View
         void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Действие которое выполняется когда выбрали фигуру из выпадающего списка.
-            string selectedState = comboBox1.SelectedItem.ToString();
-            MessageBox.Show(selectedState);
+            string figureType = comboBox1.SelectedItem.ToString();
+            switch(figureType)
+            {
+                case "Шар":
+                    {
+                        // Давать доступ к соответсвующим полям
+                        MessageBox.Show(figureType);
+                        break;
+                    }
+                case "Пирамида":
+                    {
+                        // Давать доступ к соответсвующим полям
+                        MessageBox.Show(figureType);
+                        break;
+                    }
+                case "Параллелепипед":
+                    {
+                        // Давать доступ к соответсвующим полям
+                        MessageBox.Show(figureType);
+                        break;
+                    }
+                    default:
+                    break;
+            }
+            
         }
 
     }

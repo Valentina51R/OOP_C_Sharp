@@ -46,6 +46,15 @@ namespace Model
             }
         }
 
+        public Pyramid(double square, double height)
+        {
+            Square = square;
+            Height = height;
+        }
+
+        public Pyramid()
+        { }
+
         /// <summary>
         /// Объём пирамиды.
         /// </summary>
@@ -57,9 +66,8 @@ namespace Model
         /// <returns></returns>
         public override string GetInfo()
         {
-            return $"Пирамила с параметрами:" +
-                $"высота: {Height}, площадь основания: {Square}" +
-                $"\n имеет объём {Volume}.";
+            return $"Пирамида: H = {Height}, S = {Square}" +
+                $", V = {Math.Round(Volume, 3)}.";
         }
     }
 }

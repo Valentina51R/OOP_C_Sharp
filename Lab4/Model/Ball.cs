@@ -43,7 +43,7 @@ namespace Model
         /// <returns></returns>
         public override string GetInfo()
         {
-            return $"Шар радиусом {Radius} имеет объём {Volume}.";
+            return $"Шар: R = {Radius}, V = {Math.Round(Volume, 3)}.";
         }
 
 
