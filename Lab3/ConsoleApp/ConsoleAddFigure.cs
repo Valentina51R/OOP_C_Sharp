@@ -45,10 +45,10 @@ namespace ConsoleApp
                     $"2 - пирамиды,\n3 - параллелепипед." +
                     $"\nРасчёт объёма фигуры:");
 
-                //TODO: rename
-                bool isParsed = int.TryParse(Console.ReadLine(), out int who);
+                //TODO: rename (+)
+                bool isParsed = int.TryParse(Console.ReadLine(), out int what);
 
-                switch (who)
+                switch (what)
                 {
                     case 1:
                         {
@@ -68,7 +68,7 @@ namespace ConsoleApp
                         }
                     default:
                         {
-                            throw new ArgumentException("Введите корректно.");
+                            throw new ArgumentException("Введите корректный номер фигуры.");
                         }
                 }
             });
@@ -79,16 +79,15 @@ namespace ConsoleApp
                 {
                     Console.Write("Введите радиус шара: ");
                     Ball ball1 = (Ball)figure;
-
                     ball1.Radius = CheckNumber(Console.ReadLine());
 
-                }), "шар"),
+                }), "радиуса шара"),
                 (new Action(() =>
                 {
                     Ball ball1 = (Ball)figure;
-                    Console.WriteLine("Объём шара: " + ball1.Volume + "\n");
+                    Console.WriteLine($"Объём шара: {Roundnumber(figure.Volume)}\n");
                     _ = Console.ReadKey();
-                }), "шар")
+                }), "объёма шара")
             };
 
             var actionPyramid = new List<(Action, string)>
@@ -97,24 +96,22 @@ namespace ConsoleApp
                 {
                     Pyramid pyramid = (Pyramid)figure;
                     Console.Write("Введите высоту пирамиды: ");
-
                     pyramid.Height = CheckNumber(Console.ReadLine());
 
-                }), "пирамида"),
+                }), "высоты пирамиды"),
                 (new Action(() =>
                 {
                     Pyramid pyramid = (Pyramid)figure;
                     Console.Write("Введите площадь основания пирамиды: ");
-
                     pyramid.Square = CheckNumber(Console.ReadLine());
 
-                }), "пирамида"),
+                }), "площади основания пирамиды"),
                 (new Action(() =>
                 {
-                    Console.WriteLine($"Объём пирамиды: {figure.Volume}" + "\n");
+                    Console.WriteLine($"Объём пирамиды: {Roundnumber(figure.Volume)}\n");
                     _ = Console.ReadKey();
 
-                }), "пирамида")
+                }), "объема пирамиды")
             };
 
             var actionParallelepiped = new List<(Action, string)>
@@ -126,7 +123,7 @@ namespace ConsoleApp
 
                     parallelepiped.Height = CheckNumber(Console.ReadLine());
 
-                }), "Высота параллелепипеда"),
+                }), "высоты параллелепипеда"),
                 (new Action(() =>
                 {
                     Parallelepiped parallelepiped = (Parallelepiped)figure;
@@ -134,24 +131,24 @@ namespace ConsoleApp
                     parallelepiped.Width = CheckNumber(Console.ReadLine());
 
 
-                }), "Ширина параллелепипеда"),
+                }), "ширины параллелепипеда"),
                 (new Action(() =>
                 {
                     Parallelepiped parallelepiped = (Parallelepiped)figure;
                     Console.Write("Введите длину параллелепипеда: ");
                     parallelepiped.Length = CheckNumber(Console.ReadLine());
-                }), "Длина параллелепипеда"),
+                }), "длинны параллелепипеда"),
                 (new Action(() =>
                 {
                     Console.WriteLine($"Объём параллелепипеда:" +
-                        $" {figure.Volume}" + "\n");
+                        $" {Roundnumber(figure.Volume)}\n");
                     _ = Console.ReadKey();
 
-                }), "Параллелепипед")
+                }), "объема параллелепипеда")
             };
 
             // Выбор фигуры
-            ActionHandler(actionStart, "Фигура");
+            ActionHandler(actionStart, "номера фигуры");
 
             var figureActionDictionary = new Dictionary<Type, List<(Action, string)>>
             {
@@ -165,6 +162,8 @@ namespace ConsoleApp
                 ActionHandler(action.Item1, action.Item2);
             }
         }
+
+        // TODO: соответсвие языков (+)
 
         /// <summary>
         /// Метод использования Action
@@ -184,11 +183,21 @@ namespace ConsoleApp
                 catch (ArgumentException exception)
                 {
 
-                    Console.WriteLine($"Incorrect {propertyName}. " +
-                            $"Error: {exception.Message}");
+                    Console.WriteLine($"Ошибка при вводе {propertyName}. " +
+                            $"Описание ошибки: {exception.Message}");
 
                 }
             }
+        }
+
+        /// <summary>
+        /// Метод округления числа.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns>Число округленное.</returns>
+        private static double Roundnumber(double number)
+        {
+            return Math.Round(number, 3);
         }
     }
 }

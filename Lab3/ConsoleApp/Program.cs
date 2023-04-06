@@ -12,35 +12,38 @@ namespace ConsoleApp
         /// </summary>
         private static void Main()
         {
-            Console.WriteLine("\t\tВас приветсвует программа расчёта объёма фогур.");
-            Console.WriteLine($"Max value = {double.MaxValue}");
-            Console.WriteLine($"Min value = {double.MinValue}");
+            Console.WriteLine("\t\tВас приветсвует программа расчёта объёма фигур.\n");
 
             while (true)
             {
 
                 Console.Write("Хотите расчитать объём фигуры - введите 1.\n" +
-                    "Хотите закончить выполнение программы - введите 2.\nВводите: ");
-                //TODO: rename
-                bool number = short.TryParse(Console.ReadLine(),
-                            out short action);
-                if (number != true)
+                    "Хотите закончить выполнение программы - введите 2.\nВведите: ");
+                //TODO: rename (+)
+                bool isParsed = short.TryParse(Console.ReadLine(),
+                            out short actionNumber);
+                if (isParsed != true)
                 {
-                    Console.WriteLine("Введите число 1 или 2!");
+                    Console.WriteLine("Невозможно понять что вы хотите.");
                 }
-                //TODO: switch-case
-                if (action == 1)
+                //TODO: switch-case (+)
+                switch (actionNumber)
                 {
-                    ConsoleAddFigure.AddFigure();
-                }
-                else if (action == 2)
-                {
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Невозможно понять что вы хотите. \n Введите:");
-                }
+                    case 1:
+                        {
+                            ConsoleAddFigure.AddFigure();
+                            break;
+                        }
+                    case 2:
+                        {
+                            return;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Введите число 1 или 2!");
+                            break;
+                        }
+                };
             }
         }
     }
