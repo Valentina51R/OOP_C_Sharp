@@ -50,5 +50,16 @@ namespace Model
         /// Объём пирамиды.
         /// </summary>
         public override double Volume => (1.0 / 3.0) * Square * Height;
+
+        /// <summary>
+        /// Метод вывода инфрмации о фигуре.
+        /// </summary>
+        /// <returns></returns>
+        public override string GetInfo()
+        {
+            return $"Пирамила с параметрами:" +
+                $"высота: {Height}, площадь основания: {Square}" +
+                $"\n имеет объём {Volume}.";
+        }
     }
 }

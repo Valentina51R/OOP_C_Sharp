@@ -25,6 +25,27 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Консруктор.
+        /// </summary>
+        /// <param name="radius"></param>
+        public Ball(double radius)
+        {
+            Radius = radius;
+        }
+
+        public Ball()
+        { }
+
+        /// <summary>
+        /// Метод вывода инфрмации о фигуре.
+        /// </summary>
+        /// <returns></returns>
+        public override string GetInfo()
+        {
+            return $"Шар радиусом {Radius} имеет объём {Volume}.";
+        }
+
 
         /// <summary>
         /// Расчёт объёма шара

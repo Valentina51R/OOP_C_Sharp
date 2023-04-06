@@ -30,5 +30,13 @@ namespace Model
                 return number;
             }
         }
+
+        /// <summary>
+        /// Метод вывода инфрмации о фигуре.
+        /// </summary>
+        /// <returns></returns>
+        public abstract string GetInfo();
+
+
     }
 }

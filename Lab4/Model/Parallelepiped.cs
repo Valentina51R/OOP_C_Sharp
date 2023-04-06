@@ -76,5 +76,15 @@ namespace Model
                 return Height * Width * Length;
             }
         }
+
+        /// <summary>
+        /// Метод вывода инфрмации о фигуре.
+        /// </summary>
+        /// <returns></returns>
+        public override string GetInfo()
+        {
+            return $"Параллелепипед с параметрами:" +
+                $" {Height} * {Width} * {Length}\n имеет объём {Volume}.";
+        }
     }
 }
