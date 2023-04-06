@@ -1,7 +1,10 @@
 
 namespace Model
 {
-    public class Pyramid : IFigureBase
+    /// <summary>
+    /// Класс пирамиды.
+    /// </summary>
+    public class Pyramid : FigureBase
     {
         /// <summary>
         /// Площадь.
@@ -24,7 +27,7 @@ namespace Model
             }
             set
             {
-                _square = IFigureBase.CheckNumber(value);
+                _square = CheckNumber(value);
             }
         }
 
@@ -39,30 +42,13 @@ namespace Model
             }
             set
             {
-                _height = IFigureBase.CheckNumber(value);
+                _height = CheckNumber(value);
             }
         }
 
         /// <summary>
         /// Объём пирамиды.
         /// </summary>
-        public double Volume
-        {
-            get
-            {
-                double valume = (1.0 / 3.0) * Square * Height;
-                return valume;
-            }
-        }
-
-        public Pyramid(double height, double square)
-        {
-            Height = height;
-            Square = square;
-        }
-
-        public Pyramid()
-        { }
-
+        public override double Volume => (1.0 / 3.0) * Square * Height;
     }
 }
