@@ -165,8 +165,6 @@ namespace ConsoleApp
             }
         }
 
-        // TODO: соответсвие языков (+)
-
         /// <summary>
         /// Метод использования Action
         /// </summary>
