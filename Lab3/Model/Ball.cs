@@ -1,7 +1,5 @@
-
 namespace Model
 {
-    //TODO: XML (+)
     /// <summary>
     /// Класс шара.
     /// </summary>

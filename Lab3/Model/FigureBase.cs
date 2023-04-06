@@ -1,8 +1,5 @@
-
-
 namespace Model
 {
-    //TODO: rename (+)
     /// <summary>
     /// Класс для создания
     /// фигуры

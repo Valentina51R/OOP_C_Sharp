@@ -23,7 +23,7 @@ namespace ConsoleApp
             bool isParsed = double.TryParse(number,
                         out double checkNumber);
 
-            if (isParsed != true)
+            if (!isParsed)
             {
                 throw new ArgumentException("Введите число!");
             }
@@ -45,6 +45,7 @@ namespace ConsoleApp
                     $"2 - пирамиды,\n3 - параллелепипед." +
                     $"\nРасчёт объёма фигуры:");
 
+                //TODO: rename
                 bool isParsed = int.TryParse(Console.ReadLine(), out int who);
 
                 switch (who)

@@ -1,7 +1,6 @@
 
 namespace Model
 {
-    //TODO: XML (+)
     /// <summary>
     /// Класс пирамиды.
     /// </summary>

@@ -21,13 +21,14 @@ namespace ConsoleApp
 
                 Console.Write("Хотите расчитать объём фигуры - введите 1.\n" +
                     "Хотите закончить выполнение программы - введите 2.\nВводите: ");
+                //TODO: rename
                 bool number = short.TryParse(Console.ReadLine(),
                             out short action);
                 if (number != true)
                 {
                     Console.WriteLine("Введите число 1 или 2!");
                 }
-
+                //TODO: switch-case
                 if (action == 1)
                 {
                     ConsoleAddFigure.AddFigure();
