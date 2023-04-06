@@ -19,14 +19,12 @@ namespace ConsoleApp
 
                 Console.Write("Хотите расчитать объём фигуры - введите 1.\n" +
                     "Хотите закончить выполнение программы - введите 2.\nВведите: ");
-                //TODO: rename (+)
                 bool isParsed = short.TryParse(Console.ReadLine(),
                             out short actionNumber);
-                if (isParsed != true)
+                if (!isParsed)
                 {
                     Console.WriteLine("Невозможно понять что вы хотите.");
                 }
-                //TODO: switch-case (+)
                 switch (actionNumber)
                 {
                     case 1:

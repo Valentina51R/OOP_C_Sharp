@@ -45,8 +45,7 @@ namespace ConsoleApp
                     $"2 - пирамиды,\n3 - параллелепипед." +
                     $"\nРасчёт объёма фигуры:");
 
-                //TODO: rename (+)
-                bool isParsed = int.TryParse(Console.ReadLine(), out int what);
+                bool _ = int.TryParse(Console.ReadLine(), out int what);
 
                 switch (what)
                 {
