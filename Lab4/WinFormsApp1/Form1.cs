@@ -14,16 +14,16 @@ namespace WinFormsApp1
         {
             InitializeComponent();
 
-            string[] figures = { "Ёлемент списка 1", "Ёлемент списка 2"};
-            listBox1.Items.AddRange(figures);
+            //string[] figures = { "Ёлемент списка 1", "Ёлемент списка 2"};
+            //listBox1.Items.AddRange(figures);
 
-            FigureBase ball = new Ball(8);
-            FigureBase parallelepiped = new Parallelepiped(8.6d, 7, 9);
-            FigureBase pyramid = new Pyramid(8, 7);
+            //FigureBase ball = new Ball(8);
+            //FigureBase parallelepiped = new Parallelepiped(8.6d, 7, 9);
+            //FigureBase pyramid = new Pyramid(8, 7);
 
-            listBox1.Items.Add(ball.GetInfo());
-            listBox1.Items.Add(parallelepiped.GetInfo());
-            listBox1.Items.Add(pyramid.GetInfo());
+            //listBox1.Items.Add(ball.GetInfo());
+            //listBox1.Items.Add(parallelepiped.GetInfo());
+            //listBox1.Items.Add(pyramid.GetInfo());
 
         }
 

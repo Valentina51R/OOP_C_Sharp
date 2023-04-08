@@ -109,7 +109,7 @@
 
         private GroupBox groupBox1;
         private DataGridView dataGridView1;
-        private ListBox listBox1;
+        public ListBox listBox1;
         private Button button1;
         private Button button2;
     }
