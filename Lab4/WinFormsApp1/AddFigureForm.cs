@@ -23,21 +23,27 @@ namespace View
 
         private FigureBase figure = new Ball();
 
-        public AddFigureForm()
+        private DataGridView dataGridView1;
+        private ListBox listBox1;
+        private List<FigureBase> figureList1;
+
+        public AddFigureForm(DataGridView dataGridView, ListBox listBox, List<FigureBase> figureList)
         {
+            dataGridView1 = dataGridView;
+            listBox1 = listBox;
+            figureList1 = figureList;
             InitializeComponent();
 
             comboBox1.Items.AddRange(new string[] 
             { "Шар", "Пирамида", "Параллелепипед" });
 
-           
-
             label11.ForeColor = Color.Red;
 
         }
 
+
         /// <summary>
-        /// Кнопка.
+        /// Кнопка "Ок".
         /// </summary>
         /// <param name="sender"> а.</param>
         /// <param name="e">и.</param>
@@ -56,22 +62,54 @@ namespace View
             if (flag == true)
             {
                 label11.Text = "";
-                button2.Enabled = true;
+                DialogResult = DialogResult.OK;
             }
         }
 
+        /// <summary>
+        /// Кнопка "Cancel".
+        /// Отмена добавления.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Button2_Click(object sender, EventArgs e)
         {
-            // при нажатии (клике «мышкой») на button2,
-            // окно закроется с кодом возвращения равным “OK”
+            // TODO: отменить добавление фигуры.
             DialogResult = DialogResult.OK;
+        }
 
-            //TODO: обновлять список на 1 форме
-            _form1.Show();
-            _form1.listBox1.Update();
+        /// <summary>
+        /// Добавление ячейки в dataGrid.
+        /// </summary>
+        /// <param name="figureInfo"></param>
+        public void AddRecord(string figureInfo)
+        {
+            // Настройка DaraGrid
+            dataGridView1.ColumnHeadersVisible = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.ScrollBars = ScrollBars.Both;
+
+            dataGridView1.ColumnCount = 1;
+            dataGridView1.Rows.Add(figureInfo);
+
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                column.Width = 250;
+            }
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                row.Height = 30;
+            }
 
         }
 
+        /// <summary>
+        /// Выбор из выпадающего списка.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -119,8 +157,6 @@ namespace View
             textBox5.Enabled = false;
             textBox6.Enabled = false;
 
-            button2.Enabled = false;
-
             // Выделение памяти для формы Form2
             _form1 = new Form1();
 
@@ -134,25 +170,33 @@ namespace View
             textBox4.Clear();
             textBox5.Clear();
             textBox6.Clear();
+
             //TODO: удалить надпись из comboBox
-            //comboBox1.Items.Clear();
+            //comboBox1.SelectedIndex = -1;
             //comboBox1.ResetText();
-            _form1.listBox1.Items.Add(figure.GetInfo());
+
+            // Добавление фигуры в listBox1 и dataGridView1
+            listBox1.Items.Add(figure.GetInfo());
+            AddRecord(figure.GetInfo());
+
+            // Добавление в список
+            //figureList1.Add(figure);
         }
 
+        /// <summary>
+        /// Метод проверки введеных символов
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         private static double CheckNumber(string number)
         {
             if (number.Contains('.'))
             {
                 number = number.Replace('.', ',');
             }
-
-            double checkNumber = double.Parse(number);
-
-            return checkNumber;
-            
-
+            return double.Parse(number);
         }
+
 
         private void TextBox1_Leave(object sender, EventArgs e)
         {
@@ -160,7 +204,6 @@ namespace View
             {
                 Ball ball1 = (Ball)figure;
                 ball1.Radius = CheckNumber(textBox1.Text);
-                //_form1.listBox1.Items.Add(ball1.GetInfo());
             }
 
         }
@@ -243,7 +286,9 @@ namespace View
         }
 
         /// <summary>
-        /// Метод проверки ввода чисел.
+        /// Метод позволяющий вводить только
+        /// числа и запятые и точки.
+        /// Использование BackSpace.
         /// </summary>
         /// <param name="e"></param>
         private static void CheckInput(KeyPressEventArgs e)
