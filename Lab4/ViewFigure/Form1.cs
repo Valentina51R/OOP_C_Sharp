@@ -1,16 +1,13 @@
 using Model;
 using System.ComponentModel;
 using System.Windows.Forms;
-using View;
-using static System.Windows.Forms.DataFormats;
 
-namespace WinFormsApp1
+namespace ViewFigure
 {
     public partial class Form1 : Form
     {
-
         // экземпляр (объект) класса формы Form2
-        private AddFigureForm? _addFigure;
+        private AddForm _addFigure = new AddForm();
 
         /// <summary>
 		/// Cписок фигур
@@ -18,14 +15,10 @@ namespace WinFormsApp1
 		public static BindingList<FigureBase> _figureList =
             new BindingList<FigureBase>();
 
+
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -45,30 +38,33 @@ namespace WinFormsApp1
         /// <param name="e"></param>
         private void Button2_Click(object sender, EventArgs e)
         {
-            int index = dataGridView1.CurrentRow.Index;
-            dataGridView1.Rows.Remove(dataGridView1.Rows[index]);
+            //int index = dataGridView1.CurrentRow.Index;
+            //dataGridView1.Rows.Remove(dataGridView1.Rows[index]);
             //figureList.RemoveAt(index);
+
+            if (dataGridView1.SelectedCells.Count != 0)
+            {
+                foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
+                {
+                    _figureList.Remove(cell.OwningRow.DataBoundItem as FigureBase);
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Выделение памяти для формы AddFigure
+            // Выделение памяти
+            _addFigure = new AddForm();
             CreateTable(_figureList, dataGridView1);
-            _addFigure = new AddFigureForm(dataGridView1, _figureList);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        
         public static void CreateTable(BindingList<FigureBase> figures,
             DataGridView dataGridView)
         {
             dataGridView.DataSource = null;
+            dataGridView.RowHeadersVisible = false;
             dataGridView.DataSource = figures;
+            //dataGridView.ColumnCount = 3;
             dataGridView.Columns[0].HeaderText = "Фигура";
             //dataGridView.Columns[1].HeaderText = "Параметры";
             //dataGridView.Columns[2].HeaderText = "Объём (м)";
@@ -81,5 +77,6 @@ namespace WinFormsApp1
             dataGridView.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
         }
+
     }
 }
