@@ -6,6 +6,15 @@ namespace Model
     /// </summary>
     public abstract class FigureBase
     {
+        /// <summary>
+        /// Тип фигуры
+        /// </summary>
+        public abstract string FigureType { get; }
+
+        /// <summary>
+        /// Метод возвращения параметров фигуры.
+        /// </summary>
+        public virtual string Parameters { get; }
 
         /// <summary>
         /// Метод расчёта объёма фигуры.

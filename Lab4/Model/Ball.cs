@@ -25,6 +25,22 @@ namespace Model
             }
         }
 
+        public override string FigureType
+        {
+            get
+            {
+                return $"Шар";
+            }
+        }
+
+        public override string Parameters
+        {
+            get
+            {
+                return $"R = {Radius}";
+            }
+        }
+
         /// <summary>
         /// Консруктор.
         /// </summary>

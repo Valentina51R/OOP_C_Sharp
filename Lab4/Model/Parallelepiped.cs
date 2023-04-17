@@ -65,6 +65,22 @@ namespace Model
             }
         }
 
+        public override string FigureType
+        {
+            get
+            {
+                return $"Параллелепипед";
+            }
+        }
+
+        public override string Parameters
+        {
+            get
+            {
+                return $"{Height} * {Width} * {Length}";
+            }
+        }
+
         /// <summary>
         /// Консруктор.
         /// </summary>

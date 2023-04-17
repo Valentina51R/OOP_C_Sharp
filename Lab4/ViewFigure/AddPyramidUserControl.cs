@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ViewFigure
 {
-    public partial class AddPyramidUserControl : UserControl
+    public partial class AddPyramidUserControl : UserControl, IAddFigure
     {
 
         public AddPyramidUserControl()
@@ -29,7 +29,7 @@ namespace ViewFigure
             Utils.CheckInput(e);
         }
 
-        public FigureBase AddPyramid()
+        public FigureBase AddFigure()
         {
             var pyramid = new Pyramid();
 

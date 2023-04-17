@@ -17,7 +17,20 @@ namespace ViewFigure
         /// <summary>
         /// 
         /// </summary>
-        public FigureBase figure;
+        private FigureBase _figure;
+
+        public FigureBase Figure 
+        {
+            get
+            {
+                return _figure;
+            } 
+            set
+            {
+                _figure = value;
+            }
+        }
+
 
         /// <summary>
         /// 
@@ -29,9 +42,22 @@ namespace ViewFigure
         /// </summary>
         private readonly Dictionary<string, Func<FigureBase>> _comboBoxToAction;
 
-        public AddForm()
+        private UserControl userControlflag;
+
+        private BindingList<FigureBase> _figureList1;
+
+
+
+        public AddForm(BindingList<FigureBase> _figureList)
         {
             InitializeComponent();
+
+            _figureList1 = _figureList;
+
+            button3.Visible = false;
+#if DEBUG
+            button3.Visible = true;
+#endif
 
             comboBox1.Items.AddRange(new string[]
                  { "Шар", "Пирамида", "Параллелепипед" });
@@ -47,17 +73,15 @@ namespace ViewFigure
             // с общим методом AddFigure (optional)
             _comboBoxToAction = new Dictionary<string, Func<FigureBase>>()
             {
-                {"Шар", addBallUserControl1.AddBall},
-                {"Пирамида", addPyramidUserControl1.AddPyramid},
-                {"Параллелепипед", addParallelepipedUserControl1.AddParallelepiped}
+                {"Шар", addBallUserControl1.AddFigure},
+                {"Пирамида", addPyramidUserControl1.AddFigure},
+                {"Параллелепипед", addParallelepipedUserControl1.AddFigure}
             };
+
         }
 
         private void AddForm_Load(object sender, EventArgs e)
         {
-            // Все поля недоступны
-
-
             label11.ForeColor = Color.Red;
 
             button1.Focus();
@@ -81,6 +105,7 @@ namespace ViewFigure
                 if (figureType == figure)
                 {
                     userControl.Visible = true;
+                    userControlflag = userControl;
                 }
             }
         }
@@ -96,7 +121,7 @@ namespace ViewFigure
             bool flag = true;
 
             // TODO: Перебирать textbox из нужного UserControl
-            foreach (TextBox textbox in Controls.OfType<TextBox>())
+            foreach (TextBox textbox in userControlflag.Controls.OfType<TextBox>())
             {
                 if (textbox.Visible && String.IsNullOrEmpty(textbox.Text))
                 {
@@ -108,16 +133,20 @@ namespace ViewFigure
             if (flag == true)
             {
                 label11.Text = "";
-                
-                foreach (var motionType in _comboBoxToAction)
+
+                foreach (var (key, value) in _comboBoxToAction)
                 {
-                    if (comboBox1.SelectedItem.ToString() == motionType.Key)
+                    if (comboBox1.SelectedItem.ToString() == key)
                     {
-                        Form1._figureList.Add(motionType.Value.Invoke());
+                        //Form1._figureList.Add(value);
+                        Figure = value.Invoke();
+
+                        _figureList1.Add(value.Invoke());
+                        //_figureStringList1.Add(value.Invoke().GetInfo());
                     }
                 }
-                DialogResult = DialogResult.OK;
 
+                DialogResult = DialogResult.OK;
             }
         }
 
@@ -143,7 +172,7 @@ namespace ViewFigure
             // Выбор рандомной фигуры в comboBox
             comboBox1.SelectedIndex = random.Next(0, 3);
 
-            foreach (TextBox textbox in Controls.OfType<TextBox>())
+            foreach (TextBox textbox in userControlflag.Controls.OfType<TextBox>())
             {
                 if (textbox.Visible && String.IsNullOrEmpty(textbox.Text))
                 {

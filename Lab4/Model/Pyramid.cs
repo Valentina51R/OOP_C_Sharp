@@ -46,6 +46,22 @@ namespace Model
             }
         }
 
+        public override string FigureType
+        {
+            get
+            {
+                return $"Пирамида";
+            }
+        }
+
+        public override string Parameters
+        {
+            get
+            {
+                return $"H = {Height}, S = {Square}";
+            }
+        }
+
         public Pyramid(double square, double height)
         {
             Square = square;

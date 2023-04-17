@@ -11,14 +11,29 @@ using Model;
 
 namespace ViewFigure
 {
-    public partial class AddBallUserControl : UserControl
+    public partial class AddBallUserControl : UserControl, IAddFigure
     {
-       
-        //public Ball ball;
+
+        private double volume;
 
         public AddBallUserControl()
         {
             InitializeComponent();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (textBox1.Text != "")
+                {
+                    volume = Utils.CheckNumber(textBox1.Text);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Введите корректное число больше нуля!");
+            }
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -27,7 +42,7 @@ namespace ViewFigure
         }
 
 
-        public FigureBase AddBall()
+        public FigureBase AddFigure()
         {
             var ball = new Ball();
 
@@ -35,13 +50,13 @@ namespace ViewFigure
             {
                 () =>
                 {
-                    ball.Radius = Utils.CheckNumber(textBox1.Text);
+                    ball.Radius = volume;
                 }
             };
 
             foreach (var action in actions)
             {
-              action.Invoke();    
+                action.Invoke();
             }
 
             return ball;
