@@ -18,29 +18,12 @@ namespace ViewFigure
 
         public AddBallUserControl()
         {
-            //ball = (Ball)figure;
             InitializeComponent();
-        }
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    if (textBox1.Text != "")
-            //    {
-            //        ball.Radius = AddForm.CheckNumber(textBox1.Text);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AddForm.CheckInput(e);
+            Utils.CheckInput(e);
         }
 
 
@@ -52,7 +35,7 @@ namespace ViewFigure
             {
                 () =>
                 {
-                    ball.Radius = AddForm.CheckNumber(textBox1.Text);
+                    ball.Radius = Utils.CheckNumber(textBox1.Text);
                 }
             };
 

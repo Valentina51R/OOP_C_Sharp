@@ -6,16 +6,14 @@ namespace ViewFigure
 {
     public partial class Form1 : Form
     {
-        // экземпляр (объект) класса формы Form2
-        private AddForm _addFigure = new AddForm();
-
         /// <summary>
 		/// Cписок фигур
 		/// </summary>
-		public static BindingList<FigureBase> _figureList =
-            new BindingList<FigureBase>();
+		private static BindingList<FigureBase> _figureList;
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +26,12 @@ namespace ViewFigure
         /// <param name="e"></param>
         private void Button1_Click(object sender, EventArgs e)
         {
-            _addFigure.ShowDialog();
+            var addFigureForm = new AddForm();
+            addFigureForm.ShowDialog();
+            // TODO: Алгоритм
+            // Вызываем новую дочернюю форму
+            // В дочерней форме заполняется информация о фигуре
+            // Родительская форма считывает информацию из дочерней формы, когда она закроется и статус ОК
         }
 
         /// <summary>
@@ -38,26 +41,32 @@ namespace ViewFigure
         /// <param name="e"></param>
         private void Button2_Click(object sender, EventArgs e)
         {
-            //int index = dataGridView1.CurrentRow.Index;
-            //dataGridView1.Rows.Remove(dataGridView1.Rows[index]);
-            //figureList.RemoveAt(index);
-
             if (dataGridView1.SelectedCells.Count != 0)
             {
-                foreach (DataGridViewCell cell in dataGridView1.SelectedCells)
+                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
-                    _figureList.Remove(cell.OwningRow.DataBoundItem as FigureBase);
+                    _figureList.Remove(row.DataBoundItem as FigureBase);
                 }
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             // Выделение памяти
-            _addFigure = new AddForm();
+            _figureList = new BindingList<FigureBase>();
             CreateTable(_figureList, dataGridView1);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="figures"></param>
+        /// <param name="dataGridView"></param>
         public static void CreateTable(BindingList<FigureBase> figures,
             DataGridView dataGridView)
         {
@@ -77,6 +86,5 @@ namespace ViewFigure
             dataGridView.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
         }
-
     }
 }

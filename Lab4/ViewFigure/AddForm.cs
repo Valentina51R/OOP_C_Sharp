@@ -13,13 +13,20 @@ namespace ViewFigure
 {
     public partial class AddForm : Form
     {
-
+        // TODO: Свойство / Метод
+        /// <summary>
+        /// 
+        /// </summary>
         public FigureBase figure;
 
-        private DataGridView dataGridView1;
-
+        /// <summary>
+        /// 
+        /// </summary>
         private readonly Dictionary<string, UserControl> _comboBoxToUserControl;
 
+        /// <summary>
+        /// 
+        /// </summary>
         private readonly Dictionary<string, Func<FigureBase>> _comboBoxToAction;
 
         public AddForm()
@@ -36,14 +43,14 @@ namespace ViewFigure
                 {"Параллелепипед", addParallelepipedUserControl1}
             };
 
+            // TODO: Можно создать базовый класс / интерфейс
+            // с общим методом AddFigure (optional)
             _comboBoxToAction = new Dictionary<string, Func<FigureBase>>()
             {
                 {"Шар", addBallUserControl1.AddBall},
                 {"Пирамида", addPyramidUserControl1.AddPyramid},
                 {"Параллелепипед", addParallelepipedUserControl1.AddParallelepiped}
             };
-
-
         }
 
         private void AddForm_Load(object sender, EventArgs e)
@@ -59,11 +66,6 @@ namespace ViewFigure
             addPyramidUserControl1.Visible = false;
         }
 
-        private void AddForm_Closed(object sender, System.EventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// Выпадающий список.
         /// </summary>
@@ -71,45 +73,19 @@ namespace ViewFigure
         /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             // Действие которое выполняется когда выбрали фигуру из выпадающего списка.
             string figureType = comboBox1.SelectedItem.ToString();
-            foreach (string motionType in _comboBoxToUserControl.Keys)
+            foreach (var (figure, userControl) in _comboBoxToUserControl)
             {
-                _comboBoxToUserControl[motionType].Visible = false;
-                if (figureType == motionType)
+                userControl.Visible = false;
+                if (figureType == figure)
                 {
-                    _comboBoxToUserControl[motionType].Visible = true;
+                    userControl.Visible = true;
                 }
             }
         }
 
-
-        /// <summary>
-        /// Метод позволяющий вводить только
-        /// числа и запятые и точки.
-        /// Использование BackSpace.
-        /// </summary>
-        /// <param name="e"></param>
-        public static void CheckInput(KeyPressEventArgs e)
-        {
-            //цифры, клавиша BackSpace и запятая а ASCII
-            char number = e.KeyChar;
-            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44 && number != 46)
-            {
-                e.Handled = true;
-            }
-        }
-
-        public static double CheckNumber(string number)
-        {
-            if (number.Contains('.'))
-            {
-                number = number.Replace('.', ',');
-            }
-            return double.Parse(number);
-        }
-
+        // TODO: Переделать в соответствии с комментариями в родительском классе
         /// <summary>
         /// Применить.
         /// </summary>
@@ -119,7 +95,7 @@ namespace ViewFigure
         {
             bool flag = true;
 
-            // TODO: перебирать все textbox из UserControl
+            // TODO: Перебирать textbox из нужного UserControl
             foreach (TextBox textbox in Controls.OfType<TextBox>())
             {
                 if (textbox.Visible && String.IsNullOrEmpty(textbox.Text))

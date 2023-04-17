@@ -21,12 +21,12 @@ namespace ViewFigure
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AddForm.CheckInput(e);
+            Utils.CheckInput(e);
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AddForm.CheckInput(e);
+            Utils.CheckInput(e);
         }
 
         public FigureBase AddPyramid()
@@ -37,11 +37,11 @@ namespace ViewFigure
             {
                 () =>
                 {
-                    pyramid.Height = AddForm.CheckNumber(textBox1.Text);
+                    pyramid.Height = Utils.CheckNumber(textBox1.Text);
                 },
                 () =>
                 {
-                    pyramid.Square = AddForm.CheckNumber(textBox2.Text);
+                    pyramid.Square = Utils.CheckNumber(textBox2.Text);
                 }
             };
 
@@ -49,7 +49,6 @@ namespace ViewFigure
             {
                 action.Invoke();
             }
-
             return pyramid;
         }
     }

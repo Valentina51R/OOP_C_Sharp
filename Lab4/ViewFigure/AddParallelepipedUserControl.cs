@@ -11,7 +11,7 @@ using Model;
 
 namespace ViewFigure
 {
-    public partial class AddParallelepipedUserControl : UserControl
+    public partial class AddParallelepipedUserControl : UserControl, IAddFigure
     {
 
         public AddParallelepipedUserControl()
@@ -21,21 +21,20 @@ namespace ViewFigure
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AddForm.CheckInput(e);
+            Utils.CheckInput(e);
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AddForm.CheckInput(e);
+            Utils.CheckInput(e);
         }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AddForm.CheckInput(e);
+            Utils.CheckInput(e);
         }
 
-
-        public FigureBase AddParallelepiped()
+        public FigureBase AddFigure()
         {
             var parallelepiped = new Parallelepiped();
 
@@ -43,15 +42,15 @@ namespace ViewFigure
             {
                 () =>
                 {
-                    parallelepiped.Height = AddForm.CheckNumber(textBox1.Text);
+                    parallelepiped.Height = Utils.CheckNumber(textBox1.Text);
                 },
                 () =>
                 {
-                    parallelepiped.Length = AddForm.CheckNumber(textBox2.Text);
+                    parallelepiped.Length = Utils.CheckNumber(textBox2.Text);
                 },
                 () =>
                 {
-                    parallelepiped.Width = AddForm.CheckNumber(textBox3.Text);
+                    parallelepiped.Width = Utils.CheckNumber(textBox3.Text);
                 }
             };
 
