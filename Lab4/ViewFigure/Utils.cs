@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace ViewFigure
 {
+    /// <summary>
+    /// Класс проверок вводимого числа.
+    /// </summary>
     public class Utils
     {
         /// <summary>
         /// Метод позволяющий вводить только
-        /// числа и запятые и точки.
+        /// числа, запятые и точки.
         /// Использование BackSpace.
         /// </summary>
         /// <param name="e"></param>
@@ -28,7 +31,7 @@ namespace ViewFigure
         }
 
         /// <summary>
-        /// 
+        /// Преобразование числа в double.
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>

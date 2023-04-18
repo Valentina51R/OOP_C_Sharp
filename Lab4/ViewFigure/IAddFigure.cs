@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace ViewFigure
 {
+    /// <summary>
+    /// Интерфейс добавления фигуры.
+    /// </summary>
     internal interface IAddFigure
     {
+        /// <summary>
+        /// Метод добавления фигуры.
+        /// </summary>
+        /// <returns></returns>
         public abstract FigureBase AddFigure();
     }
 }

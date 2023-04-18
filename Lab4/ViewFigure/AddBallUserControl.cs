@@ -11,16 +11,29 @@ using Model;
 
 namespace ViewFigure
 {
+    /// <summary>
+    /// Добавление нового шара.
+    /// </summary>
     public partial class AddBallUserControl : UserControl, IAddFigure
     {
-
+        /// <summary>
+        /// Объём.
+        /// </summary>
         private double volume;
 
+        /// <summary>
+        /// Добавление шара.
+        /// </summary>
         public AddBallUserControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Метод изменении содержимого текстового поля.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             try
@@ -36,31 +49,40 @@ namespace ViewFigure
             }
         }
 
+        /// <summary>
+        /// Контроль ввода значений.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }
 
-
+        /// <summary>
+        /// Метод добавления фигуры.
+        /// </summary>
+        /// <returns></returns>
         public FigureBase AddFigure()
         {
             var ball = new Ball();
 
-            var actions = new List<Action>()
-            {
-                () =>
-                {
-                    ball.Radius = volume;
-                }
-            };
+            ball.Radius = volume;
 
-            foreach (var action in actions)
-            {
-                action.Invoke();
-            }
+            //var actions = new List<Action>()
+            //{
+            //    () =>
+            //    {
+            //        ball.Radius = volume;
+            //    }
+            //};
+
+            //foreach (var action in actions)
+            //{
+            //    action.Invoke();
+            //}
 
             return ball;
         }
-
     }
 }

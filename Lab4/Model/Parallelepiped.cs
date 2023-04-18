@@ -65,6 +65,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Тип фигуры.
+        /// </summary>
         public override string FigureType
         {
             get
@@ -73,6 +76,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Параметры.
+        /// </summary>
         public override string Parameters
         {
             get
@@ -81,17 +87,10 @@ namespace Model
             }
         }
 
-        /// <summary>
-        /// Консруктор.
-        /// </summary>
-        /// <param name="radius"></param>
-        public Parallelepiped(double height, double width, double lenght)
-        {
-            Height = height;
-            Width = width;
-            Length = lenght;
-        }
 
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
         public Parallelepiped()
         { }
 

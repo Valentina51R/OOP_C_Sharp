@@ -46,6 +46,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Тип фигуры.
+        /// </summary>
         public override string FigureType
         {
             get
@@ -54,6 +57,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Параметры.
+        /// </summary>
         public override string Parameters
         {
             get
@@ -62,12 +68,9 @@ namespace Model
             }
         }
 
-        public Pyramid(double square, double height)
-        {
-            Square = square;
-            Height = height;
-        }
-
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
         public Pyramid()
         { }
 

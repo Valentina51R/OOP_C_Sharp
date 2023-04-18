@@ -13,12 +13,15 @@ namespace ViewFigure
 {
     public partial class AddForm : Form
     {
-        // TODO: Свойство / Метод
+        // TODO: Свойство / Метод (+)
         /// <summary>
-        /// 
+        /// Фигура.
         /// </summary>
         private FigureBase _figure;
 
+        /// <summary>
+        /// Задание фигуры.
+        /// </summary>
         public FigureBase Figure 
         {
             get
@@ -33,7 +36,7 @@ namespace ViewFigure
 
 
         /// <summary>
-        /// 
+        /// Словарь UserControls
         /// </summary>
         private readonly Dictionary<string, UserControl> _comboBoxToUserControl;
 
@@ -42,12 +45,21 @@ namespace ViewFigure
         /// </summary>
         private readonly Dictionary<string, Func<FigureBase>> _comboBoxToAction;
 
+        /// <summary>
+        /// Метка используемого UserControl.
+        /// </summary>
         private UserControl userControlflag;
 
+        /// <summary>
+        /// Список фигур.
+        /// </summary>
         private BindingList<FigureBase> _figureList1;
 
 
-
+        /// <summary>
+        /// Форма добавления фигур.
+        /// </summary>
+        /// <param name="_figureList"></param>
         public AddForm(BindingList<FigureBase> _figureList)
         {
             InitializeComponent();
@@ -70,7 +82,9 @@ namespace ViewFigure
             };
 
             // TODO: Можно создать базовый класс / интерфейс
-            // с общим методом AddFigure (optional)
+            // с общим методом AddFigure (optional) (+)
+            // Остался вопрос с применением, как не использовать этот словарь,
+            // а ограничиться _comboBoxToUserControl
             _comboBoxToAction = new Dictionary<string, Func<FigureBase>>()
             {
                 {"Шар", addBallUserControl1.AddFigure},
@@ -80,10 +94,13 @@ namespace ViewFigure
 
         }
 
+        /// <summary>
+        /// Метод загрузки формы.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddForm_Load(object sender, EventArgs e)
         {
-            label11.ForeColor = Color.Red;
-
             button1.Focus();
             addBallUserControl1.Visible = false;
             addParallelepipedUserControl1.Visible = false;
@@ -125,28 +142,33 @@ namespace ViewFigure
             {
                 if (textbox.Visible && String.IsNullOrEmpty(textbox.Text))
                 {
-                    label11.Text = "Заполните все необходимые поля!";
+                    MessageBox.Show("Заполните все необходимые поля!",
+                        "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     flag = false;
                 }
             }
 
             if (flag == true)
             {
-                label11.Text = "";
 
-                foreach (var (key, value) in _comboBoxToAction)
+                try
                 {
-                    if (comboBox1.SelectedItem.ToString() == key)
+                    foreach (var (key, value) in _comboBoxToAction)
                     {
-                        //Form1._figureList.Add(value);
-                        Figure = value.Invoke();
-
-                        _figureList1.Add(value.Invoke());
-                        //_figureStringList1.Add(value.Invoke().GetInfo());
+                        if (comboBox1.SelectedItem.ToString() == key)
+                        {
+                            _figureList1.Add(value.Invoke());
+                            DialogResult = DialogResult.OK;
+                        }
                     }
                 }
+                catch
+                {
+                    MessageBox.Show("Введено некорректное значение, проверьте данные!\n" +
+                        "Введите одно положительное десятичное число в каждое текстовое поле.",
+                        "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
-                DialogResult = DialogResult.OK;
             }
         }
 

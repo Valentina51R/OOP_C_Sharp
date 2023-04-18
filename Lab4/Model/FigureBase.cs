@@ -1,9 +1,14 @@
+using System.Xml.Serialization;
+
 namespace Model
 {
     /// <summary>
     /// Класс для создания
     /// фигуры
     /// </summary>
+    [XmlInclude(typeof(Ball))]
+    [XmlInclude(typeof(Pyramid))]
+    [XmlInclude(typeof(Parallelepiped))]
     public abstract class FigureBase
     {
         /// <summary>

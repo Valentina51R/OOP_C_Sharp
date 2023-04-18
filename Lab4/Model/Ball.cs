@@ -25,6 +25,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Тип фигуры.
+        /// </summary>
         public override string FigureType
         {
             get
@@ -33,6 +36,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Параметры.
+        /// </summary>
         public override string Parameters
         {
             get
@@ -42,14 +48,8 @@ namespace Model
         }
 
         /// <summary>
-        /// Консруктор.
+        /// Конструктор.
         /// </summary>
-        /// <param name="radius"></param>
-        public Ball(double radius)
-        {
-            Radius = radius;
-        }
-
         public Ball()
         { }
 

@@ -19,7 +19,7 @@ namespace ViewFigure
             new XmlSerializer(typeof(BindingList<FigureBase>));
 
         /// <summary>
-        /// 
+        /// Основная форма.
         /// </summary>
         public Form1()
         {
@@ -59,7 +59,7 @@ namespace ViewFigure
         }
 
         /// <summary>
-        /// 
+        /// Действия при загрузки формы.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -71,14 +71,13 @@ namespace ViewFigure
         }
 
         /// <summary>
-        /// 
+        /// Создание таблицы DataGrid.
         /// </summary>
         /// <param name="figures"></param>
         /// <param name="dataGridView"></param>
         public static void CreateTable(BindingList<FigureBase> figures,
               DataGridView dataGridView)
         {
-            dataGridView.DataSource = null;
             dataGridView.RowHeadersVisible = false;
             dataGridView.DataSource = figures;
             dataGridView.Columns[0].HeaderText = "Фигура";
@@ -104,6 +103,11 @@ namespace ViewFigure
             _figureList.Clear();
         }
 
+        /// <summary>
+        /// Сохранение списка в файл.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_figureList.Count == 0)
@@ -116,29 +120,31 @@ namespace ViewFigure
 
             var saveFileDialog = new SaveFileDialog
             {
-                Filter = "Файлы (*.fgr)|*.fgr|Все файлы (*.*)|*.*",
-                AddExtension = true,
-                DefaultExt = ".fgr"
+                Filter = "Файлы (*.fgr)|*.fgr|Все файлы (*.*)|*.*"
             };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 var path = saveFileDialog.FileName.ToString();
-                using (FileStream fileStream = new FileStream(path,
-                    FileMode.OpenOrCreate))
+                using (FileStream file = File.Create(path))
                 {
-                    _serializer.Serialize(fileStream, _figureList);
+                    _serializer.Serialize(file, _figureList);
                 }
                 MessageBox.Show("Файл успешно сохранён.", "Сохранение завершено",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
+        /// <summary>
+        /// Открытие файла.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var openFileDialog = new OpenFileDialog
             {
-                Filter = "Файлы (*.fgr)|*.fgr|Все файлы (*.*)|*.*",
+                Filter = "Файлы (*.fgr)|*.fgr|Все файлы (*.*)|*.*"
             };
 
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
@@ -146,11 +152,11 @@ namespace ViewFigure
             var path = openFileDialog.FileName.ToString();
             try
             {
-                using (FileStream fileStream = new FileStream(path,
-                    FileMode.OpenOrCreate))
+                using (var file = new StreamReader(path))
                 {
-                    _figureList = (BindingList<FigureBase>)_serializer.Deserialize(fileStream);
+                    _figureList = (BindingList<FigureBase>)_serializer.Deserialize(file);
                 }
+
                 dataGridView1.DataSource = _figureList;
                 dataGridView1.CurrentCell = null;
                 MessageBox.Show("Файл успешно загружен.", "Загрузка завершена",

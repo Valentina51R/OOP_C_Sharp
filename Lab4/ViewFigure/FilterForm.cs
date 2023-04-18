@@ -1,50 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Model;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Model;
 
 namespace ViewFigure
 {
+    /// <summary>
+    /// Форма фильтрации.
+    /// </summary>
     public partial class FilterForm : Form
     {
 
         /// <summary>
-        /// Лист фильтрованных фигур
+        /// Лист фильтруемых фигур
         /// </summary>
-        private readonly BindingList<FigureBase> _listFigureFilter;
+        private readonly BindingList<FigureBase> _listFigure;
 
         /// <summary>
-        /// Листотфильтрованных фигур
+        /// Лист отфильтрованных фигур
         /// </summary>
-        private BindingList<FigureBase> _newlistFigureFilter;
+        private BindingList<FigureBase> _listFigureFilter;
 
+        /// <summary>
+        /// DataGrid.
+        /// </summary>
         private DataGridView dataGridview;
 
+        /// <summary>
+        /// Объём.
+        /// </summary>
         private double volume;
 
+        /// <summary>
+        /// Форма фильтрации.
+        /// </summary>
+        /// <param name="figures"></param>
+        /// <param name="dataGrid"></param>
         public FilterForm(BindingList<FigureBase> figures, DataGridView dataGrid)
         {
             InitializeComponent();
-            _listFigureFilter = figures;
+            _listFigure = figures;
             dataGridview = dataGrid;
             textBox1.Enabled = false;
-        }
-
-
-        /// <summary>
-        /// Выбор фигуры.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -67,12 +62,21 @@ namespace ViewFigure
             }
         }
 
+        /// <summary>
+        /// Контроль ввода значений.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }
 
-
+        /// <summary>
+        /// Флажок.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
             if(checkBox4.Checked)
@@ -88,7 +92,7 @@ namespace ViewFigure
         /// <param name="e"></param>
         private void buttonFilter_Click(object sender, EventArgs e)
         {
-            _newlistFigureFilter = new BindingList<FigureBase>();
+            _listFigureFilter = new BindingList<FigureBase>();
 
             int count = 0;
             if (checkBox1.Checked == false &&
@@ -100,7 +104,7 @@ namespace ViewFigure
                 return;
             }
 
-            foreach (FigureBase figure in _listFigureFilter)
+            foreach (FigureBase figure in _listFigure)
             {
                 switch (figure)
                 {
@@ -109,7 +113,7 @@ namespace ViewFigure
                     case Parallelepiped _ when checkBox3.Checked:
                         {
                             count++;
-                            _newlistFigureFilter.Add(figure);
+                            _listFigureFilter.Add(figure);
                             break;
                         }
                 }
@@ -118,25 +122,22 @@ namespace ViewFigure
                     (figure.Volume == volume))
                 {
                     count++;
-                    _newlistFigureFilter.Add(figure);
+                    _listFigureFilter.Add(figure);
                 }
             }
 
             if (count > 0)
             {
-                dataGridview.DataSource = _newlistFigureFilter;
+                dataGridview.DataSource = _listFigureFilter;
                 Close();
             }
             else
             {
                 MessageBox.Show("Нет фигур удовлетворяющих фильтру!");
-                dataGridview.DataSource = _newlistFigureFilter;
+                dataGridview.DataSource = _listFigureFilter;
                 Close();
                 return;
             }
-            
-
         }
-
     }
 }
