@@ -35,11 +35,6 @@ namespace ViewFigure
         {
             var addFigureForm = new AddForm(_figureList);
             addFigureForm.ShowDialog();
-            // TODO: Алгоритм
-            // Вызываем новую дочернюю форму
-            // В дочерней форме заполняется информация о фигуре
-            // Родительская форма считывает информацию из дочерней формы, когда она закроется и статус ОК
-
         }
 
         /// <summary>

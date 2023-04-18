@@ -13,7 +13,7 @@ namespace ViewFigure
 {
     public partial class AddForm : Form
     {
-        // TODO: Свойство / Метод (+)
+        // TODO:(+) Свойство / Метод 
         /// <summary>
         /// Фигура.
         /// </summary>
@@ -34,7 +34,6 @@ namespace ViewFigure
             }
         }
 
-
         /// <summary>
         /// Словарь UserControls
         /// </summary>
@@ -48,7 +47,7 @@ namespace ViewFigure
         /// <summary>
         /// Метка используемого UserControl.
         /// </summary>
-        private UserControl userControlflag;
+        private UserControl userControl;
 
         /// <summary>
         /// Список фигур.
@@ -81,8 +80,8 @@ namespace ViewFigure
                 {"Параллелепипед", addParallelepipedUserControl1}
             };
 
-            // TODO: Можно создать базовый класс / интерфейс
-            // с общим методом AddFigure (optional) (+)
+            // TODO: (+) Можно создать базовый класс / интерфейс
+            // с общим методом AddFigure (optional) 
             // Остался вопрос с применением, как не использовать этот словарь,
             // а ограничиться _comboBoxToUserControl
             _comboBoxToAction = new Dictionary<string, Func<FigureBase>>()
@@ -122,12 +121,11 @@ namespace ViewFigure
                 if (figureType == figure)
                 {
                     userControl.Visible = true;
-                    userControlflag = userControl;
+                    this.userControl = userControl;
                 }
             }
         }
 
-        // TODO: Переделать в соответствии с комментариями в родительском классе
         /// <summary>
         /// Применить.
         /// </summary>
@@ -135,40 +133,22 @@ namespace ViewFigure
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            bool flag = true;
-
-            // TODO: Перебирать textbox из нужного UserControl
-            foreach (TextBox textbox in userControlflag.Controls.OfType<TextBox>())
+            try
             {
-                if (textbox.Visible && String.IsNullOrEmpty(textbox.Text))
+                foreach (var (key, value) in _comboBoxToAction)
                 {
-                    MessageBox.Show("Заполните все необходимые поля!",
-                        "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    flag = false;
-                }
-            }
-
-            if (flag == true)
-            {
-
-                try
-                {
-                    foreach (var (key, value) in _comboBoxToAction)
+                    if (comboBox1.SelectedItem.ToString() == key)
                     {
-                        if (comboBox1.SelectedItem.ToString() == key)
-                        {
-                            _figureList1.Add(value.Invoke());
-                            DialogResult = DialogResult.OK;
-                        }
+                        _figureList1.Add(value.Invoke());
+                        DialogResult = DialogResult.OK;
                     }
                 }
-                catch
-                {
-                    MessageBox.Show("Введено некорректное значение, проверьте данные!\n" +
-                        "Введите одно положительное десятичное число в каждое текстовое поле.",
-                        "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
+            }
+            catch
+            {
+                MessageBox.Show("Введено некорректное значение, проверьте данные!\n" +
+                    "Введите одно положительное десятичное число в каждое текстовое поле.",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -194,7 +174,7 @@ namespace ViewFigure
             // Выбор рандомной фигуры в comboBox
             comboBox1.SelectedIndex = random.Next(0, 3);
 
-            foreach (TextBox textbox in userControlflag.Controls.OfType<TextBox>())
+            foreach (TextBox textbox in userControl.Controls.OfType<TextBox>())
             {
                 if (textbox.Visible && String.IsNullOrEmpty(textbox.Text))
                 {
