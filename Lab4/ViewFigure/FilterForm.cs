@@ -100,30 +100,50 @@ namespace ViewFigure
                 checkBox3.Checked == false &&
                 checkBox4.Checked == false)
             {
-                MessageBox.Show("Критерии для поиска не введены!");
+                MessageBox.Show("Критерии для поиска не введены!",
+                    "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             foreach (FigureBase figure in _listFigure)
             {
+ 
                 switch (figure)
                 {
                     case Ball _ when checkBox1.Checked:
                     case Pyramid _ when checkBox2.Checked:
                     case Parallelepiped _ when checkBox3.Checked:
                         {
-                            count++;
-                            _listFigureFilter.Add(figure);
-                            break;
+                            if (checkBox4.Checked )
+                            {
+                                if (figure.Volume == volume)
+                                {
+                                    count++;
+                                    _listFigureFilter.Add(figure);
+                                    break;
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                count++;
+                                _listFigureFilter.Add(figure);
+                                break;
+                            }
                         }
                 }
 
-                if (checkBox4.Checked && 
-                    (figure.Volume == volume))
+                if (!checkBox1.Checked && !checkBox2.Checked && !checkBox3.Checked)
                 {
-                    count++;
-                    _listFigureFilter.Add(figure);
-                }
+                    if (checkBox4.Checked && figure.Volume == volume)
+                    {
+                        count++;
+                        _listFigureFilter.Add(figure);
+                    }
+                }     
             }
 
             if (count > 0)
