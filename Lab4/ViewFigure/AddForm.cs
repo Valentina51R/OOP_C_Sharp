@@ -66,6 +66,7 @@ namespace ViewFigure
             _figureList1 = _figureList;
 
             button3.Visible = false;
+            button1.Enabled = false;
 #if DEBUG
             button3.Visible = true;
 #endif
@@ -121,6 +122,7 @@ namespace ViewFigure
                 if (figureType == figure)
                 {
                     userControl.Visible = true;
+                    button1.Enabled = true;
                     this.userControl = userControl;
                 }
             }
@@ -146,7 +148,7 @@ namespace ViewFigure
             }
             catch
             {
-                MessageBox.Show("Введено некорректное значение, проверьте данные!\n" +
+                MessageBox.Show("Введено некорректное значение!\n" +
                     "Введите одно положительное десятичное число в каждое текстовое поле.",
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

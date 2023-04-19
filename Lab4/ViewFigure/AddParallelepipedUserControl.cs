@@ -62,26 +62,9 @@ namespace ViewFigure
         {
             var parallelepiped = new Parallelepiped();
 
-            var actions = new List<Action>()
-            {
-                () =>
-                {
-                    parallelepiped.Height = Utils.CheckNumber(textBox1.Text);
-                },
-                () =>
-                {
-                    parallelepiped.Length = Utils.CheckNumber(textBox2.Text);
-                },
-                () =>
-                {
-                    parallelepiped.Width = Utils.CheckNumber(textBox3.Text);
-                }
-            };
-
-            foreach (var action in actions)
-            {
-                action.Invoke();
-            }
+            parallelepiped.Height = Utils.CheckNumber(textBox1.Text);
+            parallelepiped.Length = Utils.CheckNumber(textBox2.Text);
+            parallelepiped.Width = Utils.CheckNumber(textBox3.Text);
 
             return parallelepiped;
         }

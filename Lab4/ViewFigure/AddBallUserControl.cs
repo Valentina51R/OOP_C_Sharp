@@ -16,10 +16,6 @@ namespace ViewFigure
     /// </summary>
     public partial class AddBallUserControl : UserControl, IAddFigure
     {
-        /// <summary>
-        /// Объём.
-        /// </summary>
-        private double volume;
 
         /// <summary>
         /// Добавление шара.
@@ -27,26 +23,6 @@ namespace ViewFigure
         public AddBallUserControl()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Метод изменении содержимого текстового поля.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (textBox1.Text != "")
-                {
-                    volume = Utils.CheckNumber(textBox1.Text);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Введите корректное число больше нуля!");
-            }
         }
 
         /// <summary>
@@ -67,20 +43,7 @@ namespace ViewFigure
         {
             var ball = new Ball();
 
-            ball.Radius = volume;
-
-            //var actions = new List<Action>()
-            //{
-            //    () =>
-            //    {
-            //        ball.Radius = volume;
-            //    }
-            //};
-
-            //foreach (var action in actions)
-            //{
-            //    action.Invoke();
-            //}
+            ball.Radius = Utils.CheckNumber(textBox1.Text);
 
             return ball;
         }

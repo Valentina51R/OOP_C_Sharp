@@ -52,22 +52,9 @@ namespace ViewFigure
         {
             var pyramid = new Pyramid();
 
-            var actions = new List<Action>()
-            {
-                () =>
-                {
-                    pyramid.Height = Utils.CheckNumber(textBox1.Text);
-                },
-                () =>
-                {
-                    pyramid.Square = Utils.CheckNumber(textBox2.Text);
-                }
-            };
+            pyramid.Height = Utils.CheckNumber(textBox1.Text);
+            pyramid.Square = Utils.CheckNumber(textBox2.Text);
 
-            foreach (var action in actions)
-            {
-                action.Invoke();
-            }
             return pyramid;
         }
     }

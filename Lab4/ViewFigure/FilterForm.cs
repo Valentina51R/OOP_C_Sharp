@@ -58,7 +58,8 @@ namespace ViewFigure
             }
             catch
             {
-                MessageBox.Show("Введите корректное число больше нуля!");
+                MessageBox.Show("Введите корректное число!",
+                    "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -73,7 +74,7 @@ namespace ViewFigure
         }
 
         /// <summary>
-        /// Флажок.
+        /// Флажок активации поля ввода объёма.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -110,9 +111,9 @@ namespace ViewFigure
  
                 switch (figure)
                 {
-                    case Ball _ when checkBox1.Checked:
-                    case Pyramid _ when checkBox2.Checked:
-                    case Parallelepiped _ when checkBox3.Checked:
+                    case Ball when checkBox1.Checked:
+                    case Pyramid when checkBox2.Checked:
+                    case Parallelepiped when checkBox3.Checked:
                         {
                             if (checkBox4.Checked )
                             {
@@ -153,7 +154,9 @@ namespace ViewFigure
             }
             else
             {
-                MessageBox.Show("Нет фигур удовлетворяющих фильтру!");
+                MessageBox.Show("Нет фигур удовлетворяющих фильтру!",
+                    "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 dataGridview.DataSource = _listFigureFilter;
                 Close();
                 return;
