@@ -123,10 +123,7 @@ namespace ViewFigure
                                     _listFigureFilter.Add(figure);
                                     break;
                                 }
-                                else
-                                {
-                                    break;
-                                }
+                                break;
                             }
                             else
                             {

@@ -89,7 +89,7 @@ namespace ViewFigure
         }
 
         /// <summary>
-        /// Очистка всего списка фтгур.
+        /// Очистка всего списка фигур.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -125,7 +125,8 @@ namespace ViewFigure
                 {
                     _serializer.Serialize(file, _figureList);
                 }
-                MessageBox.Show("Файл успешно сохранён.", "Сохранение завершено",
+                MessageBox.Show("Файл успешно сохранён.",
+                    "Сохранение завершено",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -149,17 +150,20 @@ namespace ViewFigure
             {
                 using (var file = new StreamReader(path))
                 {
-                    _figureList = (BindingList<FigureBase>)_serializer.Deserialize(file);
+                    _figureList = (BindingList<FigureBase>)
+                        _serializer.Deserialize(file);
                 }
 
                 dataGridView1.DataSource = _figureList;
                 dataGridView1.CurrentCell = null;
-                MessageBox.Show("Файл успешно загружен.", "Загрузка завершена",
+                MessageBox.Show("Файл успешно загружен.",
+                    "Загрузка завершена",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
-                MessageBox.Show("Файл повреждён или не соответствует формату.",
+                MessageBox.Show("Не удалось загрузить файл.\n" +
+                    "Файл повреждён или не соответствует формату.",
                     "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

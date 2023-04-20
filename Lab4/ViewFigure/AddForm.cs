@@ -37,12 +37,14 @@ namespace ViewFigure
         /// <summary>
         /// Словарь UserControls
         /// </summary>
-        private readonly Dictionary<string, UserControl> _comboBoxToUserControl;
+        private readonly Dictionary<string, UserControl>
+            _comboBoxToUserControl;
 
         /// <summary>
-        /// 
+        /// Словарь действий.
         /// </summary>
-        private readonly Dictionary<string, Func<FigureBase>> _comboBoxToAction;
+        private readonly Dictionary<string, Func<FigureBase>>
+            _comboBoxToAction;
 
         /// <summary>
         /// Метка используемого UserControl.
@@ -65,10 +67,9 @@ namespace ViewFigure
 
             _figureList1 = _figureList;
 
-            button3.Visible = false;
             button1.Enabled = false;
-#if DEBUG
-            button3.Visible = true;
+#if !DEBUG
+            button3.Visible = false;
 #endif
 
             comboBox1.Items.AddRange(new string[]
@@ -109,12 +110,13 @@ namespace ViewFigure
 
         /// <summary>
         /// Выпадающий список.
+        /// Действие которое выполняется когда
+        /// выбрали фигуру из выпадающего списка.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Действие которое выполняется когда выбрали фигуру из выпадающего списка.
             string figureType = comboBox1.SelectedItem.ToString();
             foreach (var (figure, userControl) in _comboBoxToUserControl)
             {
@@ -149,7 +151,8 @@ namespace ViewFigure
             catch
             {
                 MessageBox.Show("Введено некорректное значение!\n" +
-                    "Введите одно положительное десятичное число в каждое текстовое поле.",
+                    "Введите одно положительное десятичное число" +
+                    " в каждое текстовое поле.",
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -173,7 +176,6 @@ namespace ViewFigure
         {
             Random random = new Random();
 
-            // Выбор рандомной фигуры в comboBox
             comboBox1.SelectedIndex = random.Next(0, 3);
 
             foreach (TextBox textbox in userControl.Controls.OfType<TextBox>())
