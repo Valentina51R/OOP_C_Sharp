@@ -21,12 +21,13 @@ namespace Model
         /// <summary>
         /// Метод возвращения параметров фигуры.
         /// </summary>
+        [DisplayName("Параметры")]
         public virtual string Parameters { get; }
 
         /// <summary>
         /// Метод расчёта объёма фигуры.
         /// </summary>
-        /// <returns>Volume.</returns>
+        [DisplayName("Объём, м2")]
         public abstract double Volume { get; }
 
         /// <summary>

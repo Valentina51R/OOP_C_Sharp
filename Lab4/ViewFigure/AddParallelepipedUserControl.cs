@@ -29,7 +29,7 @@ namespace ViewFigure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void Height_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }
@@ -39,7 +39,7 @@ namespace ViewFigure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        private void Length_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }
@@ -49,7 +49,7 @@ namespace ViewFigure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        private void Width_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }
@@ -62,9 +62,9 @@ namespace ViewFigure
         {
             var parallelepiped = new Parallelepiped();
 
-            parallelepiped.Height = Utils.CheckNumber(textBox1.Text);
-            parallelepiped.Length = Utils.CheckNumber(textBox2.Text);
-            parallelepiped.Width = Utils.CheckNumber(textBox3.Text);
+            parallelepiped.Height = Utils.CheckNumber(Height.Text);
+            parallelepiped.Length = Utils.CheckNumber(Lenght.Text);
+            parallelepiped.Width = Utils.CheckNumber(Width.Text);
 
             return parallelepiped;
         }

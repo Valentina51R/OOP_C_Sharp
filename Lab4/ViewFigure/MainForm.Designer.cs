@@ -1,6 +1,6 @@
 ﻿namespace ViewFigure
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,42 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.DeleteFigureButton = new System.Windows.Forms.Button();
+            this.AddFigureButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
+            this.CleanListButton = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.SaveFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.FilterButton = new System.Windows.Forms.Button();
+            this.CleanFilterButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button2
+            // DeleteFigureButton
             // 
-            this.button2.Location = new System.Drawing.Point(30, 302);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(210, 29);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Удалить фигуру";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.DeleteFigureButton.Location = new System.Drawing.Point(30, 302);
+            this.DeleteFigureButton.Name = "DeleteFigureButton";
+            this.DeleteFigureButton.Size = new System.Drawing.Size(210, 29);
+            this.DeleteFigureButton.TabIndex = 6;
+            this.DeleteFigureButton.Text = "Удалить фигуру";
+            this.DeleteFigureButton.UseVisualStyleBackColor = true;
+            this.DeleteFigureButton.Click += new System.EventHandler(this.DeleteFigureButton_Click);
             // 
-            // button1
+            // AddFigureButton
             // 
-            this.button1.Location = new System.Drawing.Point(30, 267);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 29);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Добавить фигуру";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.AddFigureButton.Location = new System.Drawing.Point(30, 267);
+            this.AddFigureButton.Name = "AddFigureButton";
+            this.AddFigureButton.Size = new System.Drawing.Size(210, 29);
+            this.AddFigureButton.TabIndex = 5;
+            this.AddFigureButton.Text = "Добавить фигуру";
+            this.AddFigureButton.UseVisualStyleBackColor = true;
+            this.AddFigureButton.Click += new System.EventHandler(this.AddFigureButton_Click);
             // 
             // groupBox1
             // 
@@ -87,15 +87,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(423, 170);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button3
+            // CleanListButton
             // 
-            this.button3.Location = new System.Drawing.Point(262, 267);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(191, 29);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Очистить список";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.CleanListButton.Location = new System.Drawing.Point(262, 267);
+            this.CleanListButton.Name = "CleanListButton";
+            this.CleanListButton.Size = new System.Drawing.Size(191, 29);
+            this.CleanListButton.TabIndex = 7;
+            this.CleanListButton.Text = "Очистить список";
+            this.CleanListButton.UseVisualStyleBackColor = true;
+            this.CleanListButton.Click += new System.EventHandler(this.CleanListButton_Click);
             // 
             // toolStrip1
             // 
@@ -134,25 +134,25 @@
             this.OpenFileToolStripMenuItem.Text = "Открыть файл";
             this.OpenFileToolStripMenuItem.Click += new System.EventHandler(this.OpenFileToolStripMenuItem_Click);
             // 
-            // button4
+            // FilterButton
             // 
-            this.button4.Location = new System.Drawing.Point(262, 302);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(94, 29);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Фильтр";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.FilterButton.Location = new System.Drawing.Point(262, 302);
+            this.FilterButton.Name = "FilterButton";
+            this.FilterButton.Size = new System.Drawing.Size(94, 29);
+            this.FilterButton.TabIndex = 9;
+            this.FilterButton.Text = "Фильтр";
+            this.FilterButton.UseVisualStyleBackColor = true;
+            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
             // 
-            // button5
+            // CleanFilterButton
             // 
-            this.button5.Location = new System.Drawing.Point(362, 302);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(91, 29);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "Сбросить";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.CleanFilterButton.Location = new System.Drawing.Point(362, 302);
+            this.CleanFilterButton.Name = "CleanFilterButton";
+            this.CleanFilterButton.Size = new System.Drawing.Size(91, 29);
+            this.CleanFilterButton.TabIndex = 10;
+            this.CleanFilterButton.Text = "Сбросить";
+            this.CleanFilterButton.UseVisualStyleBackColor = true;
+            this.CleanFilterButton.Click += new System.EventHandler(this.CleanFilterButton_Click);
             // 
             // Form1
             // 
@@ -160,12 +160,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(488, 346);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.CleanFilterButton);
+            this.Controls.Add(this.FilterButton);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CleanListButton);
+            this.Controls.Add(this.DeleteFigureButton);
+            this.Controls.Add(this.AddFigureButton);
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.SystemColors.Desktop;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -184,16 +184,16 @@
 
         #endregion
 
-        private Button button2;
-        private Button button1;
+        private Button DeleteFigureButton;
+        private Button AddFigureButton;
         private GroupBox groupBox1;
         public DataGridView dataGridView1;
-        private Button button3;
+        private Button CleanListButton;
         private ToolStrip toolStrip1;
         private ToolStripDropDownButton toolStripDropDownButton1;
         private ToolStripMenuItem SaveFileToolStripMenuItem;
         private ToolStripMenuItem OpenFileToolStripMenuItem;
-        private Button button4;
-        private Button button5;
+        private Button FilterButton;
+        private Button CleanFilterButton;
     }
 }

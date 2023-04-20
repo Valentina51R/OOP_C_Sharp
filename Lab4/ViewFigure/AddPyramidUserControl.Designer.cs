@@ -30,8 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Height = new System.Windows.Forms.TextBox();
+            this.Square = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -52,28 +52,28 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Площадь основания";
             // 
-            // textBox1
+            // Height
             // 
-            this.textBox1.Location = new System.Drawing.Point(81, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.Height.Location = new System.Drawing.Point(81, 24);
+            this.Height.Name = "Height";
+            this.Height.Size = new System.Drawing.Size(125, 27);
+            this.Height.TabIndex = 2;
+            this.Height.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Height_KeyPress);
             // 
-            // textBox2
+            // Square
             // 
-            this.textBox2.Location = new System.Drawing.Point(81, 92);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 27);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            this.Square.Location = new System.Drawing.Point(81, 92);
+            this.Square.Name = "Square";
+            this.Square.Size = new System.Drawing.Size(125, 27);
+            this.Square.TabIndex = 3;
+            this.Square.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Square_KeyPress);
             // 
             // AddPyramidUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Square);
+            this.Controls.Add(this.Height);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddPyramidUserControl";
@@ -87,7 +87,7 @@
 
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox Height;
+        private TextBox Square;
     }
 }

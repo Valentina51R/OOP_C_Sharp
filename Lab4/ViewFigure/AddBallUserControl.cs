@@ -25,13 +25,13 @@ namespace ViewFigure
             InitializeComponent();
         }
 
-        //TODO: rename
+        //TODO: rename(+)
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void Radius_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }
@@ -44,8 +44,8 @@ namespace ViewFigure
         {
             var ball = new Ball();
 
-            //TODO: rename
-            ball.Radius = Utils.CheckNumber(textBox1.Text);
+            //TODO: rename(+)
+            ball.Radius = Utils.CheckNumber(Radius.Text);
 
             return ball;
         }

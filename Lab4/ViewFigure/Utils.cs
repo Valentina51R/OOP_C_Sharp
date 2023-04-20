@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace ViewFigure
 {
-    //TODO: static
+    //TODO: static (+)
     /// <summary>
     /// Класс проверок вводимого числа.
     /// </summary>
-    public class Utils
+    public static class Utils
     {
+
         /// <summary>
         /// Метод позволяющий вводить только
         /// числа, запятые и точки.
@@ -20,13 +21,17 @@ namespace ViewFigure
         /// <param name="e"></param>
         public static void CheckInput(KeyPressEventArgs e)
         {
-            //TODO: symbols const
+            int backSpace = 8;
+            int nine = 47;
+            int zero = 58;
+
+            //TODO: symbols const(+)
             //цифры, клавиша BackSpace и запятая а ASCII
             char number = e.KeyChar;
-            if ((e.KeyChar <= 47 || e.KeyChar >= 58)
-                && number != 8
-                && number != 44
-                && number != 46)
+            if ((e.KeyChar <= nine || e.KeyChar >= zero)
+                && number != backSpace
+                && number != ','
+                && number != '.')
             {
                 e.Handled = true;
             }

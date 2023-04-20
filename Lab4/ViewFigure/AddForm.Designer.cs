@@ -31,10 +31,10 @@ namespace ViewFigure
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddForm));
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Random = new System.Windows.Forms.Button();
+            this.Cancel = new System.Windows.Forms.Button();
+            this.OK = new System.Windows.Forms.Button();
+            this.comboBoxFigures = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.addBallUserControl1 = new ViewFigure.AddBallUserControl();
             this.addParallelepipedUserControl1 = new ViewFigure.AddParallelepipedUserControl();
@@ -43,44 +43,44 @@ namespace ViewFigure
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button3
+            // Random
             // 
-            this.button3.Location = new System.Drawing.Point(169, 51);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(151, 29);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "Случайна фигура";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Random.Location = new System.Drawing.Point(169, 51);
+            this.Random.Name = "Random";
+            this.Random.Size = new System.Drawing.Size(151, 29);
+            this.Random.TabIndex = 26;
+            this.Random.Text = "Случайна фигура";
+            this.Random.UseVisualStyleBackColor = true;
+            this.Random.Click += new System.EventHandler(this.buttonRandom_Click);
             // 
-            // button2
+            // Cancel
             // 
-            this.button2.Location = new System.Drawing.Point(169, 267);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 29);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Cancel.Location = new System.Drawing.Point(169, 267);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(151, 29);
+            this.Cancel.TabIndex = 25;
+            this.Cancel.Text = "Отменить";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // button1
+            // OK
             // 
-            this.button1.Location = new System.Drawing.Point(12, 267);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 29);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Ok";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.OK.Location = new System.Drawing.Point(12, 267);
+            this.OK.Name = "OK";
+            this.OK.Size = new System.Drawing.Size(151, 29);
+            this.OK.TabIndex = 23;
+            this.OK.Text = "Ok";
+            this.OK.UseVisualStyleBackColor = true;
+            this.OK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
-            // comboBox1
+            // comboBoxFigures
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 28);
-            this.comboBox1.TabIndex = 22;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxFigures.FormattingEnabled = true;
+            this.comboBoxFigures.Location = new System.Drawing.Point(12, 51);
+            this.comboBoxFigures.Name = "comboBoxFigures";
+            this.comboBoxFigures.Size = new System.Drawing.Size(151, 28);
+            this.comboBoxFigures.TabIndex = 22;
+            this.comboBoxFigures.SelectedIndexChanged += new System.EventHandler(this.comboBoxFigeres_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -131,10 +131,10 @@ namespace ViewFigure
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(333, 309);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Random);
+            this.Controls.Add(this.Cancel);
+            this.Controls.Add(this.OK);
+            this.Controls.Add(this.comboBoxFigures);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddForm";
@@ -149,10 +149,10 @@ namespace ViewFigure
 
         #endregion
 
-        private Button button3;
-        private Button button2;
-        private Button button1;
-        private ComboBox comboBox1;
+        private Button Random;
+        private Button Cancel;
+        private Button OK;
+        private ComboBox comboBoxFigures;
         private Label label1;
         private AddBallUserControl addBallUserControl1;
         private AddParallelepipedUserControl addParallelepipedUserControl1;

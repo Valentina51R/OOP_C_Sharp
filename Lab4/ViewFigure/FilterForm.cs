@@ -40,7 +40,7 @@ namespace ViewFigure
             InitializeComponent();
             _listFigure = figures;
             dataGridview = dataGrid;
-            textBox1.Enabled = false;
+            VolumeTextBox.Enabled = false;
         }
 
         /// <summary>
@@ -52,9 +52,9 @@ namespace ViewFigure
         {
             try
             {
-                if (textBox1.Text != "")
+                if (VolumeTextBox.Text != "")
                 {
-                    volume = Utils.CheckNumber(textBox1.Text);
+                    volume = Utils.CheckNumber(VolumeTextBox.Text);
                 }
             }
             catch
@@ -81,9 +81,9 @@ namespace ViewFigure
         /// <param name="e"></param>
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox4.Checked)
+            if(VolumeCheckBox.Checked)
             {
-                textBox1.Enabled = true;
+                VolumeTextBox.Enabled = true;
             }
         }
 
@@ -97,11 +97,11 @@ namespace ViewFigure
             _listFigureFilter = new BindingList<FigureBase>();
 
             int count = 0;
-            //TODO: rename
-            if (checkBox1.Checked == false &&
-                checkBox2.Checked == false &&
-                checkBox3.Checked == false &&
-                checkBox4.Checked == false)
+            //TODO: rename(+)
+            if (BallCheckBox.Checked == false &&
+                PyramidCheckBox.Checked == false &&
+                ParallelepipedCheckBox.Checked == false &&
+                VolumeCheckBox.Checked == false)
             {
                 MessageBox.Show("Критерии для поиска не введены!",
                     "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -113,11 +113,11 @@ namespace ViewFigure
  
                 switch (figure)
                 {
-                    case Ball when checkBox1.Checked:
-                    case Pyramid when checkBox2.Checked:
-                    case Parallelepiped when checkBox3.Checked:
+                    case Ball when BallCheckBox.Checked:
+                    case Pyramid when PyramidCheckBox.Checked:
+                    case Parallelepiped when ParallelepipedCheckBox.Checked:
                         {
-                            if (checkBox4.Checked )
+                            if (VolumeCheckBox.Checked )
                             {
                                 if (figure.Volume == volume)
                                 {
@@ -136,9 +136,9 @@ namespace ViewFigure
                         }
                 }
 
-                if (!checkBox1.Checked && !checkBox2.Checked && !checkBox3.Checked)
+                if (!BallCheckBox.Checked && !PyramidCheckBox.Checked && !ParallelepipedCheckBox.Checked)
                 {
-                    if (checkBox4.Checked && figure.Volume == volume)
+                    if (VolumeCheckBox.Checked && figure.Volume == volume)
                     {
                         count++;
                         _listFigureFilter.Add(figure);

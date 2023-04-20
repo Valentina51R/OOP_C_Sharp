@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Radius = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -41,19 +41,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Радиус =";
             // 
-            // textBox1
+            // Radius
             // 
-            this.textBox1.Location = new System.Drawing.Point(95, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.Radius.Location = new System.Drawing.Point(95, 18);
+            this.Radius.Name = "Radius";
+            this.Radius.Size = new System.Drawing.Size(125, 27);
+            this.Radius.TabIndex = 1;
+            this.Radius.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Radius_KeyPress);
             // 
             // AddBallUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Radius);
             this.Controls.Add(this.label1);
             this.Name = "AddBallUserControl";
             this.Size = new System.Drawing.Size(250, 60);
@@ -65,6 +65,6 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox Radius;
     }
 }

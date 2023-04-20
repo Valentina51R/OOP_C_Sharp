@@ -29,7 +29,7 @@ namespace ViewFigure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void Height_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }
@@ -39,7 +39,7 @@ namespace ViewFigure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        private void Square_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }
@@ -52,8 +52,8 @@ namespace ViewFigure
         {
             var pyramid = new Pyramid();
 
-            pyramid.Height = Utils.CheckNumber(textBox1.Text);
-            pyramid.Square = Utils.CheckNumber(textBox2.Text);
+            pyramid.Height = Utils.CheckNumber(Height.Text);
+            pyramid.Square = Utils.CheckNumber(Square.Text);
 
             return pyramid;
         }

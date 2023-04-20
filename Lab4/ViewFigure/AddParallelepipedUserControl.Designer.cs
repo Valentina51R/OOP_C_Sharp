@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Height = new System.Windows.Forms.TextBox();
+            this.Lenght = new System.Windows.Forms.TextBox();
+            this.Width = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -63,37 +63,37 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Ширина";
             // 
-            // textBox1
+            // Height
             // 
-            this.textBox1.Location = new System.Drawing.Point(91, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.Height.Location = new System.Drawing.Point(91, 14);
+            this.Height.Name = "Height";
+            this.Height.Size = new System.Drawing.Size(125, 27);
+            this.Height.TabIndex = 3;
+            this.Height.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Height_KeyPress);
             // 
-            // textBox2
+            // Lenght
             // 
-            this.textBox2.Location = new System.Drawing.Point(91, 50);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 27);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            this.Lenght.Location = new System.Drawing.Point(91, 50);
+            this.Lenght.Name = "Lenght";
+            this.Lenght.Size = new System.Drawing.Size(125, 27);
+            this.Lenght.TabIndex = 4;
+            this.Lenght.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Length_KeyPress);
             // 
-            // textBox3
+            // Width
             // 
-            this.textBox3.Location = new System.Drawing.Point(91, 90);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 27);
-            this.textBox3.TabIndex = 5;
-            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            this.Width.Location = new System.Drawing.Point(91, 90);
+            this.Width.Name = "Width";
+            this.Width.Size = new System.Drawing.Size(125, 27);
+            this.Width.TabIndex = 5;
+            this.Width.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Width_KeyPress);
             // 
             // AddParallelepipedUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Width);
+            this.Controls.Add(this.Lenght);
+            this.Controls.Add(this.Height);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -109,8 +109,8 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox Height;
+        private TextBox Lenght;
+        private TextBox Width;
     }
 }

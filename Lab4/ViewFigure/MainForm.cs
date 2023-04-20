@@ -5,8 +5,8 @@ using System.Xml.Serialization;
 
 namespace ViewFigure
 {
-    //TODO: rename
-    public partial class Form1 : Form
+    //TODO: rename(+)
+    public partial class MainForm : Form
     {
         //TODO: static?
         /// <summary>
@@ -23,18 +23,18 @@ namespace ViewFigure
         /// <summary>
         /// Основная форма.
         /// </summary>
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        //TODO: rename
+        //TODO: rename(+)
         /// <summary>
         /// Добавление новой фигуры.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button1_Click(object sender, EventArgs e)
+        private void AddFigureButton_Click(object sender, EventArgs e)
         {
             //TODO: remake
             var addFigureForm = new AddForm(_figureList);
@@ -48,13 +48,13 @@ namespace ViewFigure
             }
         }
 
-        //TODO: rename
+        //TODO: rename(+)
         /// <summary>
         /// Удаление выбранной фигуры.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button2_Click(object sender, EventArgs e)
+        private void DeleteFigureButton_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedCells.Count != 0)
             {
@@ -89,9 +89,6 @@ namespace ViewFigure
             //TODO: binding source
             var source = new BindingSource(_figureList, null);
             dataGridView.DataSource = source;
-            //dataGridView.Columns[0].HeaderText = "Фигура";
-            //dataGridView.Columns[1].HeaderText = "Параметры";
-            //dataGridView.Columns[2].HeaderText = "Объём, м";
             dataGridView.AutoSizeColumnsMode =
                DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.DefaultCellStyle.Alignment =
@@ -102,13 +99,13 @@ namespace ViewFigure
                 DataGridViewSelectionMode.FullRowSelect;
         }
 
-        //TODO: rename
+        //TODO: rename(+)
         /// <summary>
         /// Очистка всего списка фигур.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button3_Click(object sender, EventArgs e)
+        private void CleanListButton_Click(object sender, EventArgs e)
         {
             _figureList.Clear();
         }
@@ -184,25 +181,25 @@ namespace ViewFigure
             }
         }
 
-        //TODO: rename
+        //TODO: rename(+)
         /// <summary>
         /// Кнопка открытия фильтра.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button4_Click(object sender, EventArgs e)
+        private void FilterButton_Click(object sender, EventArgs e)
         {
             var newFilterForm = new FilterForm(_figureList, dataGridView1);
             newFilterForm.Show();
         }
 
-        //TODO: rename
+        //TODO: rename(+)
         /// <summary>
         /// Сброс фильтра
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button5_Click(object sender, EventArgs e)
+        private void CleanFilterButton_Click(object sender, EventArgs e)
         {
             CreateTable(_figureList, dataGridView1);
         }

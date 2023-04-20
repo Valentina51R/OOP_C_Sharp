@@ -11,7 +11,10 @@ using System.Windows.Forms;
 
 namespace ViewFigure
 {
-    //TODO: XML
+    //TODO: XML(+)
+    /// <summary>
+    /// Форма добавления новой фигуры.
+    /// </summary>
     public partial class AddForm : Form
     {
         // TODO:(+) Свойство / Метод 
@@ -71,33 +74,35 @@ namespace ViewFigure
 
             _figureList1 = _figureList;
 
-            comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            comboBoxFigures.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 
-            button1.Enabled = false;
+            OK.Enabled = false;
 #if !DEBUG
             button3.Visible = false;
 #endif
-            //TODO: extract string array
-            comboBox1.Items.AddRange(new string[]
-                 { "Шар", "Пирамида", "Параллелепипед" });
+            //TODO: extract string array(+)
+            string[] typeFigure = { "Шар", "Пирамида", "Параллелепипед" };
+
+            comboBoxFigures.Items.AddRange(new string[]
+                 { typeFigure[0], typeFigure[1], typeFigure[2] });
 
             _comboBoxToUserControl = new Dictionary<string, UserControl>()
             {
-                {"Шар", addBallUserControl1},
-                {"Пирамида", addPyramidUserControl1},
-                {"Параллелепипед", addParallelepipedUserControl1}
+                {typeFigure[0], addBallUserControl1},
+                {typeFigure[1], addPyramidUserControl1},
+                {typeFigure[2], addParallelepipedUserControl1}
             };
 
             // TODO: (+) Можно создать базовый класс / интерфейс
             // с общим методом AddFigure (optional) 
             // Остался вопрос с применением, как не использовать этот словарь,
             // а ограничиться _comboBoxToUserControl
-            _comboBoxToAction = new Dictionary<string, Func<FigureBase>>()
-            {
-                {"Шар", addBallUserControl1.AddFigure},
-                {"Пирамида", addPyramidUserControl1.AddFigure},
-                {"Параллелепипед", addParallelepipedUserControl1.AddFigure}
-            };
+            //_comboBoxToAction = new Dictionary<string, Func<FigureBase>>()
+            //{
+            //    {typeFigure[0], addBallUserControl1.AddFigure},
+            //    {typeFigure[1], addPyramidUserControl1.AddFigure},
+            //    {typeFigure[2], addParallelepipedUserControl1.AddFigure}
+            //};
 
         }
 
@@ -108,7 +113,7 @@ namespace ViewFigure
         /// <param name="e"></param>
         private void AddForm_Load(object sender, EventArgs e)
         {
-            button1.Focus();
+            OK.Focus();
             addBallUserControl1.Visible = false;
             addParallelepipedUserControl1.Visible = false;
             addPyramidUserControl1.Visible = false;
@@ -121,17 +126,17 @@ namespace ViewFigure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxFigeres_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            string figureType = comboBox1.SelectedItem.ToString();
+            string figureType = comboBoxFigures.SelectedItem.ToString();
             foreach (var (figure, userControl) in _comboBoxToUserControl)
             {
                 userControl.Visible = false;
                 if (figureType == figure)
                 {
                     userControl.Visible = true;
-                    button1.Enabled = true;
+                    OK.Enabled = true;
                     this.userControl = userControl;
                 }
             }
@@ -142,11 +147,11 @@ namespace ViewFigure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonOK_Click(object sender, EventArgs e)
         {
             try
             {
-                var currentFigureControlName = comboBox1.SelectedItem.ToString();
+                var currentFigureControlName = comboBoxFigures.SelectedItem.ToString();
                 var currentFigureControl = _comboBoxToUserControl[currentFigureControlName];
                 var eventArgs = new FigureEventArgs(((IAddFigure)currentFigureControl).AddFigure());
                 FigureAdded?.Invoke(this, eventArgs);
@@ -169,7 +174,7 @@ namespace ViewFigure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -179,11 +184,11 @@ namespace ViewFigure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonRandom_Click(object sender, EventArgs e)
         {
             Random random = new Random();
 
-            comboBox1.SelectedIndex = random.Next(0, 3);
+            comboBoxFigures.SelectedIndex = random.Next(0, 3);
 
             foreach (TextBox textbox in userControl.Controls.OfType<TextBox>())
             {
