@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace Model
@@ -14,6 +15,7 @@ namespace Model
         /// <summary>
         /// Тип фигуры
         /// </summary>
+        [DisplayName("Тип фигуры")]
         public abstract string FigureType { get; }
 
         /// <summary>

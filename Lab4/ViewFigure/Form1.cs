@@ -5,8 +5,10 @@ using System.Xml.Serialization;
 
 namespace ViewFigure
 {
+    //TODO: rename
     public partial class Form1 : Form
     {
+        //TODO: static?
         /// <summary>
 		/// Cписок фигур
 		/// </summary>
@@ -26,6 +28,7 @@ namespace ViewFigure
             InitializeComponent();
         }
 
+        //TODO: rename
         /// <summary>
         /// Добавление новой фигуры.
         /// </summary>
@@ -33,10 +36,19 @@ namespace ViewFigure
         /// <param name="e"></param>
         private void Button1_Click(object sender, EventArgs e)
         {
+            //TODO: remake
             var addFigureForm = new AddForm(_figureList);
-            addFigureForm.ShowDialog();
+            addFigureForm.FigureAdded += (sender, figureEventArgs) =>
+            {
+                _figureList.Add(((FigureEventArgs)figureEventArgs).Figure);
+            };
+            if (addFigureForm.ShowDialog() == DialogResult.OK)
+            {
+                _figureList.Add(addFigureForm.Figure);
+            }
         }
 
+        //TODO: rename
         /// <summary>
         /// Удаление выбранной фигуры.
         /// </summary>
@@ -48,7 +60,7 @@ namespace ViewFigure
             {
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
-                    _figureList.Remove(row.DataBoundItem as FigureBase);
+                    _figureList.RemoveAt(row.Index);
                 }
             }
         }
@@ -74,10 +86,12 @@ namespace ViewFigure
               DataGridView dataGridView)
         {
             dataGridView.RowHeadersVisible = false;
-            dataGridView.DataSource = figures;
-            dataGridView.Columns[0].HeaderText = "Фигура";
-            dataGridView.Columns[1].HeaderText = "Параметры";
-            dataGridView.Columns[2].HeaderText = "Объём, м";
+            //TODO: binding source
+            var source = new BindingSource(_figureList, null);
+            dataGridView.DataSource = source;
+            //dataGridView.Columns[0].HeaderText = "Фигура";
+            //dataGridView.Columns[1].HeaderText = "Параметры";
+            //dataGridView.Columns[2].HeaderText = "Объём, м";
             dataGridView.AutoSizeColumnsMode =
                DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.DefaultCellStyle.Alignment =
@@ -88,6 +102,7 @@ namespace ViewFigure
                 DataGridViewSelectionMode.FullRowSelect;
         }
 
+        //TODO: rename
         /// <summary>
         /// Очистка всего списка фигур.
         /// </summary>
@@ -169,6 +184,7 @@ namespace ViewFigure
             }
         }
 
+        //TODO: rename
         /// <summary>
         /// Кнопка открытия фильтра.
         /// </summary>
@@ -180,6 +196,7 @@ namespace ViewFigure
             newFilterForm.Show();
         }
 
+        //TODO: rename
         /// <summary>
         /// Сброс фильтра
         /// </summary>

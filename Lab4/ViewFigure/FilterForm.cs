@@ -29,6 +29,7 @@ namespace ViewFigure
         /// </summary>
         private double volume;
 
+        //TODO:
         /// <summary>
         /// Форма фильтрации.
         /// </summary>
@@ -96,6 +97,7 @@ namespace ViewFigure
             _listFigureFilter = new BindingList<FigureBase>();
 
             int count = 0;
+            //TODO: rename
             if (checkBox1.Checked == false &&
                 checkBox2.Checked == false &&
                 checkBox3.Checked == false &&

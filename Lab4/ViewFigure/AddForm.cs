@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace ViewFigure
 {
+    //TODO: XML
     public partial class AddForm : Form
     {
         // TODO:(+) Свойство / Метод 
@@ -19,6 +20,7 @@ namespace ViewFigure
         /// </summary>
         private FigureBase _figure;
 
+        //TODO: not using
         /// <summary>
         /// Задание фигуры.
         /// </summary>
@@ -33,6 +35,8 @@ namespace ViewFigure
                 _figure = value;
             }
         }
+
+        public EventHandler<EventArgs> FigureAdded;
 
         /// <summary>
         /// Словарь UserControls
@@ -73,7 +77,7 @@ namespace ViewFigure
 #if !DEBUG
             button3.Visible = false;
 #endif
-
+            //TODO: extract string array
             comboBox1.Items.AddRange(new string[]
                  { "Шар", "Пирамида", "Параллелепипед" });
 
@@ -142,14 +146,14 @@ namespace ViewFigure
         {
             try
             {
-                foreach (var (key, value) in _comboBoxToAction)
-                {
-                    if (comboBox1.SelectedItem.ToString() == key)
-                    {
-                        _figureList1.Add(value.Invoke());
-                        DialogResult = DialogResult.OK;
-                    }
-                }
+                var currentFigureControlName = comboBox1.SelectedItem.ToString();
+                var currentFigureControl = _comboBoxToUserControl[currentFigureControlName];
+                var eventArgs = new FigureEventArgs(((IAddFigure)currentFigureControl).AddFigure());
+                FigureAdded?.Invoke(this, eventArgs);
+
+                //_figureList1.Add(((IAddFigure)currentFigureControl).AddFigure());
+                //DialogResult = DialogResult.OK;
+                
             }
             catch
             {

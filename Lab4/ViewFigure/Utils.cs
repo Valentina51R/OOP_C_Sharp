@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ViewFigure
 {
+    //TODO: static
     /// <summary>
     /// Класс проверок вводимого числа.
     /// </summary>
@@ -19,6 +20,7 @@ namespace ViewFigure
         /// <param name="e"></param>
         public static void CheckInput(KeyPressEventArgs e)
         {
+            //TODO: symbols const
             //цифры, клавиша BackSpace и запятая а ASCII
             char number = e.KeyChar;
             if ((e.KeyChar <= 47 || e.KeyChar >= 58)
