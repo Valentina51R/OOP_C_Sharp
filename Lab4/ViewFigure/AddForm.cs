@@ -67,6 +67,8 @@ namespace ViewFigure
 
             _figureList1 = _figureList;
 
+            comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+
             button1.Enabled = false;
 #if !DEBUG
             button3.Visible = false;
@@ -117,6 +119,7 @@ namespace ViewFigure
         /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             string figureType = comboBox1.SelectedItem.ToString();
             foreach (var (figure, userControl) in _comboBoxToUserControl)
             {
