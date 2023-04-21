@@ -19,10 +19,9 @@ namespace ViewFigure
         /// </summary>
         private BindingList<FigureBase> _listFigureFilter;
 
-        /// <summary>
-        /// DataGrid.
-        /// </summary>
-        private DataGridView dataGridview;
+
+
+        public EventHandler<EventArgs> FigureFiltered;
 
         /// <summary>
         /// Объём.
@@ -35,11 +34,10 @@ namespace ViewFigure
         /// </summary>
         /// <param name="figures"></param>
         /// <param name="dataGrid"></param>
-        public FilterForm(BindingList<FigureBase> figures, DataGridView dataGrid)
+        public FilterForm(BindingList<FigureBase> figures)
         {
             InitializeComponent();
             _listFigure = figures;
-            dataGridview = dataGrid;
             VolumeTextBox.Enabled = false;
         }
 
@@ -148,15 +146,16 @@ namespace ViewFigure
 
             if (count > 0)
             {
-                dataGridview.DataSource = _listFigureFilter;
+                var eventArgs = new FigureListEventArgs(_listFigureFilter);
+                FigureFiltered?.Invoke(this, eventArgs);
                 Close();
             }
             else
             {
                 MessageBox.Show("Нет фигур удовлетворяющих фильтру!",
                     "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                dataGridview.DataSource = _listFigureFilter;
+                var eventArgs = new FigureListEventArgs(_listFigureFilter);
+                FigureFiltered?.Invoke(this, eventArgs);
                 Close();
                 return;
             }

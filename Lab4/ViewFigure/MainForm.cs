@@ -12,7 +12,7 @@ namespace ViewFigure
         /// <summary>
 		/// Cписок фигур
 		/// </summary>
-		private static BindingList<FigureBase> _figureList;
+		private BindingList<FigureBase> _figureList;
 
         /// <summary>
         /// Для файлов
@@ -37,15 +37,17 @@ namespace ViewFigure
         private void AddFigureButton_Click(object sender, EventArgs e)
         {
             //TODO: remake
-            var addFigureForm = new AddForm(_figureList);
+            var addFigureForm = new AddForm();
+
             addFigureForm.FigureAdded += (sender, figureEventArgs) =>
             {
                 _figureList.Add(((FigureEventArgs)figureEventArgs).Figure);
             };
-            if (addFigureForm.ShowDialog() == DialogResult.OK)
-            {
-                _figureList.Add(addFigureForm.Figure);
-            }
+            addFigureForm.ShowDialog();
+            //if (addFigureForm.ShowDialog() == DialogResult.OK)
+            //{
+            //    _figureList.Add(addFigureForm.Figure);
+            //}
         }
 
         //TODO: rename(+)
@@ -86,8 +88,8 @@ namespace ViewFigure
               DataGridView dataGridView)
         {
             dataGridView.RowHeadersVisible = false;
-            //TODO: binding source
-            var source = new BindingSource(_figureList, null);
+            //TODO: binding source(+)
+            var source = new BindingSource(figures, null);
             dataGridView.DataSource = source;
             dataGridView.AutoSizeColumnsMode =
                DataGridViewAutoSizeColumnsMode.Fill;
@@ -189,8 +191,12 @@ namespace ViewFigure
         /// <param name="e"></param>
         private void FilterButton_Click(object sender, EventArgs e)
         {
-            var newFilterForm = new FilterForm(_figureList, dataGridView1);
+            var newFilterForm = new FilterForm(_figureList);
             newFilterForm.Show();
+            newFilterForm.FigureFiltered += (sender, figureEventArgs) =>
+            {
+                dataGridView1.DataSource = ((FigureListEventArgs)figureEventArgs).FigureList;
+            };
         }
 
         //TODO: rename(+)

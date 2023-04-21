@@ -23,11 +23,11 @@ namespace ViewFigure
         /// </summary>
         private FigureBase _figure;
 
-        //TODO: not using
+        //TODO: not using(+)
         /// <summary>
         /// Задание фигуры.
         /// </summary>
-        public FigureBase Figure 
+        public FigureBase Figure
         {
             get
             {
@@ -48,31 +48,18 @@ namespace ViewFigure
             _comboBoxToUserControl;
 
         /// <summary>
-        /// Словарь действий.
-        /// </summary>
-        private readonly Dictionary<string, Func<FigureBase>>
-            _comboBoxToAction;
-
-        /// <summary>
         /// Метка используемого UserControl.
         /// </summary>
         private UserControl userControl;
-
-        /// <summary>
-        /// Список фигур.
-        /// </summary>
-        private BindingList<FigureBase> _figureList1;
 
 
         /// <summary>
         /// Форма добавления фигур.
         /// </summary>
         /// <param name="_figureList"></param>
-        public AddForm(BindingList<FigureBase> _figureList)
+        public AddForm()
         {
             InitializeComponent();
-
-            _figureList1 = _figureList;
 
             comboBoxFigures.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 
@@ -97,12 +84,7 @@ namespace ViewFigure
             // с общим методом AddFigure (optional) 
             // Остался вопрос с применением, как не использовать этот словарь,
             // а ограничиться _comboBoxToUserControl
-            //_comboBoxToAction = new Dictionary<string, Func<FigureBase>>()
-            //{
-            //    {typeFigure[0], addBallUserControl1.AddFigure},
-            //    {typeFigure[1], addPyramidUserControl1.AddFigure},
-            //    {typeFigure[2], addParallelepipedUserControl1.AddFigure}
-            //};
+
 
         }
 
@@ -156,9 +138,7 @@ namespace ViewFigure
                 var eventArgs = new FigureEventArgs(((IAddFigure)currentFigureControl).AddFigure());
                 FigureAdded?.Invoke(this, eventArgs);
 
-                //_figureList1.Add(((IAddFigure)currentFigureControl).AddFigure());
-                //DialogResult = DialogResult.OK;
-                
+                DialogResult = DialogResult.OK;
             }
             catch
             {
