@@ -20,7 +20,9 @@ namespace ViewFigure
         private BindingList<FigureBase> _listFigureFilter;
 
 
-
+        /// <summary>
+        /// Обработчик события.
+        /// </summary>
         public EventHandler<EventArgs> FigureFiltered;
 
         /// <summary>
@@ -28,7 +30,7 @@ namespace ViewFigure
         /// </summary>
         private double volume;
 
-        //TODO:
+        //TODO: (+) уменьшила связность
         /// <summary>
         /// Форма фильтрации.
         /// </summary>
@@ -46,7 +48,7 @@ namespace ViewFigure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBoxVolume_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -67,7 +69,7 @@ namespace ViewFigure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBoxVolume_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.CheckInput(e);
         }
@@ -77,7 +79,7 @@ namespace ViewFigure
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxVolume_CheckedChanged(object sender, EventArgs e)
         {
             if(VolumeCheckBox.Checked)
             {

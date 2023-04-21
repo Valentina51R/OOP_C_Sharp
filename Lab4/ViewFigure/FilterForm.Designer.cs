@@ -64,7 +64,7 @@
             this.VolumeCheckBox.TabIndex = 6;
             this.VolumeCheckBox.Text = "Объём";
             this.VolumeCheckBox.UseVisualStyleBackColor = true;
-            this.VolumeCheckBox.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.VolumeCheckBox.CheckedChanged += new System.EventHandler(this.checkBoxVolume_CheckedChanged);
             // 
             // ParallelepipedCheckBox
             // 
@@ -101,8 +101,8 @@
             this.VolumeTextBox.Name = "VolumeTextBox";
             this.VolumeTextBox.Size = new System.Drawing.Size(63, 27);
             this.VolumeTextBox.TabIndex = 2;
-            this.VolumeTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.VolumeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.VolumeTextBox.TextChanged += new System.EventHandler(this.textBoxVolume_TextChanged);
+            this.VolumeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVolume_KeyPress);
             // 
             // BallCheckBox
             // 
