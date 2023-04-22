@@ -39,6 +39,7 @@
             this.FilterButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             // 
             // groupBox1
             // 

@@ -42,6 +42,7 @@ namespace ViewFigure
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             // 
             // Random
             // 

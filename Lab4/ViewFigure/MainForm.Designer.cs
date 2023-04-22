@@ -44,6 +44,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             // 
             // DeleteFigureButton
             // 
