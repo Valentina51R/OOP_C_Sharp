@@ -11,19 +11,16 @@ using System.Windows.Forms;
 
 namespace ViewFigure
 {
-    //TODO: XML(+)
     /// <summary>
     /// Форма добавления новой фигуры.
     /// </summary>
     public partial class AddForm : Form
     {
-        // TODO:(+) Свойство / Метод 
         /// <summary>
         /// Фигура.
         /// </summary>
         private FigureBase _figure;
 
-        //TODO: not using(+)
         /// <summary>
         /// Задание фигуры.
         /// </summary>
@@ -39,6 +36,7 @@ namespace ViewFigure
             }
         }
 
+        //TODO: XML
         public EventHandler<EventArgs> FigureAdded;
 
         /// <summary>
@@ -56,7 +54,7 @@ namespace ViewFigure
         /// <summary>
         /// Форма добавления фигур.
         /// </summary>
-        /// <param name="_figureList"></param>
+        /// <param name="_figureList">//TODO: XML</param>
         public AddForm()
         {
             InitializeComponent();
@@ -67,7 +65,6 @@ namespace ViewFigure
 #if !DEBUG
             button3.Visible = false;
 #endif
-            //TODO: extract string array(+)
             string[] typeFigure = { "Шар", "Пирамида", "Параллелепипед" };
 
             comboBoxFigures.Items.AddRange(new string[]
@@ -79,13 +76,6 @@ namespace ViewFigure
                 {typeFigure[1], addPyramidUserControl1},
                 {typeFigure[2], addParallelepipedUserControl1}
             };
-
-            // TODO: (+) Можно создать базовый класс / интерфейс
-            // с общим методом AddFigure (optional) 
-            // Остался вопрос с применением, как не использовать этот словарь,
-            // а ограничиться _comboBoxToUserControl
-
-
         }
 
         /// <summary>

@@ -30,7 +30,6 @@ namespace ViewFigure
         /// </summary>
         private double volume;
 
-        //TODO: (+) уменьшила связность
         /// <summary>
         /// Форма фильтрации.
         /// </summary>
@@ -97,11 +96,10 @@ namespace ViewFigure
             _listFigureFilter = new BindingList<FigureBase>();
 
             int count = 0;
-            //TODO: rename(+)
-            if (BallCheckBox.Checked == false &&
-                PyramidCheckBox.Checked == false &&
-                ParallelepipedCheckBox.Checked == false &&
-                VolumeCheckBox.Checked == false)
+            if (!BallCheckBox.Checked 
+                && !PyramidCheckBox.Checked 
+                && !ParallelepipedCheckBox.Checked 
+                && !VolumeCheckBox.Checked)
             {
                 MessageBox.Show("Критерии для поиска не введены!",
                     "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -136,7 +134,9 @@ namespace ViewFigure
                         }
                 }
 
-                if (!BallCheckBox.Checked && !PyramidCheckBox.Checked && !ParallelepipedCheckBox.Checked)
+                if (!BallCheckBox.Checked 
+                    && !PyramidCheckBox.Checked 
+                    && !ParallelepipedCheckBox.Checked)
                 {
                     if (VolumeCheckBox.Checked && figure.Volume == volume)
                     {

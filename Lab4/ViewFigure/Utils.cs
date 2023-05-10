@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace ViewFigure
 {
-    //TODO: static (+)
     /// <summary>
     /// Класс проверок вводимого числа.
     /// </summary>
@@ -25,7 +24,7 @@ namespace ViewFigure
             int nine = 47;
             int zero = 58;
 
-            //TODO: symbols const(+)
+            //TODO: symbols const
             //цифры, клавиша BackSpace и запятая а ASCII
             char number = e.KeyChar;
             if ((e.KeyChar <= nine || e.KeyChar >= zero)

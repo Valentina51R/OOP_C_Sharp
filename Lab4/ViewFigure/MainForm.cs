@@ -5,10 +5,8 @@ using System.Xml.Serialization;
 
 namespace ViewFigure
 {
-    //TODO: rename(+)
     public partial class MainForm : Form
     {
-        //TODO: static?
         /// <summary>
 		/// Cписок фигур
 		/// </summary>
@@ -28,7 +26,6 @@ namespace ViewFigure
             InitializeComponent();
         }
 
-        //TODO: rename(+)
         /// <summary>
         /// Добавление новой фигуры.
         /// </summary>
@@ -36,7 +33,6 @@ namespace ViewFigure
         /// <param name="e"></param>
         private void AddFigureButton_Click(object sender, EventArgs e)
         {
-            //TODO: remake
             var addFigureForm = new AddForm();
 
             addFigureForm.FigureAdded += (sender, figureEventArgs) =>
@@ -44,13 +40,8 @@ namespace ViewFigure
                 _figureList.Add(((FigureEventArgs)figureEventArgs).Figure);
             };
             addFigureForm.ShowDialog();
-            //if (addFigureForm.ShowDialog() == DialogResult.OK)
-            //{
-            //    _figureList.Add(addFigureForm.Figure);
-            //}
         }
 
-        //TODO: rename(+)
         /// <summary>
         /// Удаление выбранной фигуры.
         /// </summary>
@@ -88,7 +79,6 @@ namespace ViewFigure
               DataGridView dataGridView)
         {
             dataGridView.RowHeadersVisible = false;
-            //TODO: binding source(+)
             var source = new BindingSource(figures, null);
             dataGridView.DataSource = source;
             dataGridView.AutoSizeColumnsMode =
@@ -101,7 +91,6 @@ namespace ViewFigure
                 DataGridViewSelectionMode.FullRowSelect;
         }
 
-        //TODO: rename(+)
         /// <summary>
         /// Очистка всего списка фигур.
         /// </summary>
@@ -183,7 +172,6 @@ namespace ViewFigure
             }
         }
 
-        //TODO: rename(+)
         /// <summary>
         /// Кнопка открытия фильтра.
         /// </summary>
@@ -199,7 +187,6 @@ namespace ViewFigure
             };
         }
 
-        //TODO: rename(+)
         /// <summary>
         /// Сброс фильтра
         /// </summary>

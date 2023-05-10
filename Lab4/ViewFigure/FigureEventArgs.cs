@@ -18,7 +18,7 @@
         /// </summary>
         public FigureBase Figure { get; private set; }
 
-
+        //TODO: XML
         public FigureEventArgs(FigureBase figure)
         {
             Figure = figure;

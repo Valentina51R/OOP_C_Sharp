@@ -25,7 +25,6 @@ namespace ViewFigure
             InitializeComponent();
         }
 
-        //TODO: rename(+)
         /// <summary>
         /// Контроль ввода значений.
         /// </summary>
@@ -44,7 +43,6 @@ namespace ViewFigure
         {
             var ball = new Ball();
 
-            //TODO: rename(+)
             ball.Radius = Utils.CheckNumber(Radius.Text);
 
             return ball;

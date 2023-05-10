@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 
 namespace ViewFigure
 {
+    //TODO: XML
     internal class FigureListEventArgs : EventArgs
     {
+        //TODO: XML
         public BindingList<FigureBase> FigureList { get; private set; }
 
-
+        //TODO: XML
         public FigureListEventArgs(BindingList<FigureBase> figures)
         {
             FigureList = figures;
