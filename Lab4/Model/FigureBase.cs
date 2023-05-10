@@ -27,7 +27,7 @@ namespace Model
         /// <summary>
         /// Метод расчёта объёма фигуры.
         /// </summary>
-        [DisplayName("Объём, м2")]
+        [DisplayName("Объём, м3")]
         public abstract double Volume { get; }
 
         /// <summary>

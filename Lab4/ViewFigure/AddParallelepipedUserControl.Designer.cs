@@ -34,6 +34,9 @@
             this.Height = new System.Windows.Forms.TextBox();
             this.Lenght = new System.Windows.Forms.TextBox();
             this.Width = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -87,10 +90,40 @@
             this.Width.TabIndex = 5;
             this.Width.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Width_KeyPress);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(217, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(20, 20);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "м";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(216, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(20, 20);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "м";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(217, 97);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(20, 20);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "м";
+            // 
             // AddParallelepipedUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.Width);
             this.Controls.Add(this.Lenght);
             this.Controls.Add(this.Height);
@@ -112,5 +145,8 @@
         private TextBox Height;
         private TextBox Lenght;
         private TextBox Width;
+        private Label label4;
+        private Label label5;
+        private Label label6;
     }
 }

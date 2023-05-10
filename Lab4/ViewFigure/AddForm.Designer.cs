@@ -42,7 +42,6 @@ namespace ViewFigure
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             // 
             // Random
             // 
@@ -50,7 +49,7 @@ namespace ViewFigure
             this.Random.Name = "Random";
             this.Random.Size = new System.Drawing.Size(151, 29);
             this.Random.TabIndex = 26;
-            this.Random.Text = "Случайна фигура";
+            this.Random.Text = "Случайная фигура";
             this.Random.UseVisualStyleBackColor = true;
             this.Random.Click += new System.EventHandler(this.buttonRandom_Click);
             // 
@@ -137,6 +136,7 @@ namespace ViewFigure
             this.Controls.Add(this.OK);
             this.Controls.Add(this.comboBoxFigures);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
