@@ -12,6 +12,9 @@ namespace ViewFigure
 		/// </summary>
 		private BindingList<FigureBase> _figureList;
 
+        /// <summary>
+        /// Отфильтрованый список
+        /// </summary>
         private BindingList<FigureBase> _filteredList;
 
         /// <summary>
