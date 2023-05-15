@@ -36,7 +36,10 @@ namespace ViewFigure
             }
         }
 
-        //TODO: XML
+        //TODO: XML(+)
+        /// <summary>
+        /// Событие добавления фигуры.
+        /// </summary>
         public EventHandler<EventArgs> FigureAdded;
 
         /// <summary>
@@ -85,7 +88,6 @@ namespace ViewFigure
         /// <param name="e"></param>
         private void AddForm_Load(object sender, EventArgs e)
         {
-            OK.Focus();
             addBallUserControl1.Visible = false;
             addParallelepipedUserControl1.Visible = false;
             addPyramidUserControl1.Visible = false;
@@ -127,7 +129,6 @@ namespace ViewFigure
                 var currentFigureControl = _comboBoxToUserControl[currentFigureControlName];
                 var eventArgs = new FigureEventArgs(((IAddFigure)currentFigureControl).AddFigure());
                 FigureAdded?.Invoke(this, eventArgs);
-
                 DialogResult = DialogResult.OK;
             }
             catch
@@ -164,7 +165,6 @@ namespace ViewFigure
             {
                 if (textbox.Visible && String.IsNullOrEmpty(textbox.Text))
                 {
-                    textbox.Focus();
                     textbox.Text = random.Next(1, 100).ToString();
                 }
             }

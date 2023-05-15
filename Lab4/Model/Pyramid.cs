@@ -77,7 +77,7 @@ namespace Model
         /// <summary>
         /// Объём пирамиды.
         /// </summary>
-        public override double Volume => (1.0 / 3.0) * Square * Height;
+        public override double Volume => CheckNumber((1.0 / 3.0) * Square * Height);
 
         /// <summary>
         /// Метод вывода инфрмации о фигуре.

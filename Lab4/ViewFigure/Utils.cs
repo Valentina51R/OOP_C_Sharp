@@ -20,14 +20,12 @@ namespace ViewFigure
         /// <param name="e"></param>
         public static void CheckInput(KeyPressEventArgs e)
         {
-            int backSpace = 8;
-            int nine = 47;
-            int zero = 58;
+            const int backSpace = 8;
 
-            //TODO: symbols const
-            //цифры, клавиша BackSpace и запятая а ASCII
+            //TODO: symbols const (+)
+            //цифры, клавиша BackSpace и запятая а ASCII (+)
             char number = e.KeyChar;
-            if ((e.KeyChar <= nine || e.KeyChar >= zero)
+            if ((e.KeyChar < '0' || e.KeyChar > '9')
                 && number != backSpace
                 && number != ','
                 && number != '.')

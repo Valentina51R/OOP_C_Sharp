@@ -68,6 +68,6 @@ namespace Model
         /// </summary>
         /// <returns>volume.</returns>
         public override double Volume =>
-            (4.0 / 3.0) * Math.PI * Math.Pow(Radius, 3);
+            CheckNumber((4.0 / 3.0) * Math.PI * Math.Pow(Radius, 3));
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Model;
+using System;
 using System.ComponentModel;
 
 namespace ViewFigure
@@ -146,21 +147,22 @@ namespace ViewFigure
                 }     
             }
 
+            FigureListEventArgs eventArgs;
+
             if (count > 0)
             {
-                var eventArgs = new FigureListEventArgs(_listFigureFilter);
-                FigureFiltered?.Invoke(this, eventArgs);
-                Close();
+                eventArgs = new FigureListEventArgs(_listFigureFilter);
             }
             else
             {
                 MessageBox.Show("Нет фигур удовлетворяющих фильтру!",
                     "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                var eventArgs = new FigureListEventArgs(_listFigureFilter);
-                FigureFiltered?.Invoke(this, eventArgs);
-                Close();
+                eventArgs = new FigureListEventArgs(_listFigureFilter);
                 return;
             }
+
+            FigureFiltered?.Invoke(this, eventArgs);
+            Close();
         }
     }
 }

@@ -39,7 +39,6 @@
             this.FilterButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             // 
             // groupBox1
             // 
@@ -49,9 +48,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.VolumeTextBox);
             this.groupBox1.Controls.Add(this.BallCheckBox);
-            this.groupBox1.Location = new System.Drawing.Point(17, 12);
+            this.groupBox1.Location = new System.Drawing.Point(20, 20);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(195, 149);
+            this.groupBox1.Size = new System.Drawing.Size(200, 149);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Параметры фильтрации";
@@ -117,9 +116,9 @@
             // 
             // FilterButton
             // 
-            this.FilterButton.Location = new System.Drawing.Point(17, 167);
+            this.FilterButton.Location = new System.Drawing.Point(20, 175);
             this.FilterButton.Name = "FilterButton";
-            this.FilterButton.Size = new System.Drawing.Size(195, 31);
+            this.FilterButton.Size = new System.Drawing.Size(200, 30);
             this.FilterButton.TabIndex = 1;
             this.FilterButton.Text = "Запуск фильтра";
             this.FilterButton.UseVisualStyleBackColor = true;
@@ -130,10 +129,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(228, 211);
+            this.ClientSize = new System.Drawing.Size(242, 213);
             this.Controls.Add(this.FilterButton);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FilterForm";
             this.Text = "Фильтр";
             this.groupBox1.ResumeLayout(false);

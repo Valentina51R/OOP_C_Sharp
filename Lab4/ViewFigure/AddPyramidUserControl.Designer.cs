@@ -39,7 +39,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 26);
+            this.label1.Location = new System.Drawing.Point(20, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 20);
             this.label1.TabIndex = 0;
@@ -48,7 +48,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 69);
+            this.label2.Location = new System.Drawing.Point(20, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 20);
             this.label2.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // Height
             // 
-            this.Height.Location = new System.Drawing.Point(81, 24);
+            this.Height.Location = new System.Drawing.Point(90, 20);
             this.Height.Name = "Height";
             this.Height.Size = new System.Drawing.Size(125, 27);
             this.Height.TabIndex = 2;
@@ -64,7 +64,7 @@
             // 
             // Square
             // 
-            this.Square.Location = new System.Drawing.Point(81, 92);
+            this.Square.Location = new System.Drawing.Point(90, 100);
             this.Square.Name = "Square";
             this.Square.Size = new System.Drawing.Size(125, 27);
             this.Square.TabIndex = 3;
@@ -73,7 +73,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(206, 28);
+            this.label3.Location = new System.Drawing.Point(220, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(20, 20);
             this.label3.TabIndex = 4;
@@ -82,7 +82,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(206, 95);
+            this.label4.Location = new System.Drawing.Point(220, 100);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(20, 20);
             this.label4.TabIndex = 5;
@@ -99,7 +99,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddPyramidUserControl";
-            this.Size = new System.Drawing.Size(227, 136);
+            this.Size = new System.Drawing.Size(250, 140);
             this.ResumeLayout(false);
             this.PerformLayout();
 

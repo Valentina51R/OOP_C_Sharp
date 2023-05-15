@@ -8,13 +8,23 @@ using System.Threading.Tasks;
 
 namespace ViewFigure
 {
-    //TODO: XML
+    //TODO: XML(+)
+    /// <summary>
+    /// Класс событий
+    /// </summary>
     internal class FigureListEventArgs : EventArgs
     {
-        //TODO: XML
+        //TODO: XML (+)
+        /// <summary>
+        /// Список фигур.
+        /// </summary>
         public BindingList<FigureBase> FigureList { get; private set; }
 
-        //TODO: XML
+        //TODO: XML (+)
+        /// <summary>
+        /// Конструктор события добавления в список фигур.
+        /// </summary>
+        /// <param name="figures"></param>
         public FigureListEventArgs(BindingList<FigureBase> figures)
         {
             FigureList = figures;

@@ -44,13 +44,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             // 
             // DeleteFigureButton
             // 
-            this.DeleteFigureButton.Location = new System.Drawing.Point(30, 302);
+            this.DeleteFigureButton.Location = new System.Drawing.Point(15, 340);
             this.DeleteFigureButton.Name = "DeleteFigureButton";
-            this.DeleteFigureButton.Size = new System.Drawing.Size(210, 29);
+            this.DeleteFigureButton.Size = new System.Drawing.Size(220, 30);
             this.DeleteFigureButton.TabIndex = 6;
             this.DeleteFigureButton.Text = "Удалить фигуру";
             this.DeleteFigureButton.UseVisualStyleBackColor = true;
@@ -58,9 +57,9 @@
             // 
             // AddFigureButton
             // 
-            this.AddFigureButton.Location = new System.Drawing.Point(30, 267);
+            this.AddFigureButton.Location = new System.Drawing.Point(15, 300);
             this.AddFigureButton.Name = "AddFigureButton";
-            this.AddFigureButton.Size = new System.Drawing.Size(210, 29);
+            this.AddFigureButton.Size = new System.Drawing.Size(220, 30);
             this.AddFigureButton.TabIndex = 5;
             this.AddFigureButton.Text = "Добавить фигуру";
             this.AddFigureButton.UseVisualStyleBackColor = true;
@@ -70,9 +69,9 @@
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(24, 41);
+            this.groupBox1.Location = new System.Drawing.Point(5, 40);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(435, 209);
+            this.groupBox1.Size = new System.Drawing.Size(470, 250);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Список фигур";
@@ -81,18 +80,18 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 33);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 45);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(423, 170);
+            this.dataGridView1.Size = new System.Drawing.Size(450, 200);
             this.dataGridView1.TabIndex = 0;
             // 
             // CleanListButton
             // 
-            this.CleanListButton.Location = new System.Drawing.Point(262, 267);
+            this.CleanListButton.Location = new System.Drawing.Point(245, 300);
             this.CleanListButton.Name = "CleanListButton";
-            this.CleanListButton.Size = new System.Drawing.Size(191, 29);
+            this.CleanListButton.Size = new System.Drawing.Size(220, 30);
             this.CleanListButton.TabIndex = 7;
             this.CleanListButton.Text = "Очистить список";
             this.CleanListButton.UseVisualStyleBackColor = true;
@@ -105,7 +104,7 @@
             this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(488, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(482, 27);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -137,9 +136,9 @@
             // 
             // FilterButton
             // 
-            this.FilterButton.Location = new System.Drawing.Point(262, 302);
+            this.FilterButton.Location = new System.Drawing.Point(245, 340);
             this.FilterButton.Name = "FilterButton";
-            this.FilterButton.Size = new System.Drawing.Size(94, 29);
+            this.FilterButton.Size = new System.Drawing.Size(105, 30);
             this.FilterButton.TabIndex = 9;
             this.FilterButton.Text = "Фильтр";
             this.FilterButton.UseVisualStyleBackColor = true;
@@ -147,30 +146,32 @@
             // 
             // CleanFilterButton
             // 
-            this.CleanFilterButton.Location = new System.Drawing.Point(362, 302);
+            this.CleanFilterButton.Location = new System.Drawing.Point(360, 340);
             this.CleanFilterButton.Name = "CleanFilterButton";
-            this.CleanFilterButton.Size = new System.Drawing.Size(91, 29);
+            this.CleanFilterButton.Size = new System.Drawing.Size(105, 30);
             this.CleanFilterButton.TabIndex = 10;
             this.CleanFilterButton.Text = "Сбросить";
             this.CleanFilterButton.UseVisualStyleBackColor = true;
             this.CleanFilterButton.Click += new System.EventHandler(this.CleanFilterButton_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(488, 346);
+            this.ClientSize = new System.Drawing.Size(482, 383);
             this.Controls.Add(this.CleanFilterButton);
+            this.Controls.Add(this.CleanListButton);
             this.Controls.Add(this.FilterButton);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.CleanListButton);
             this.Controls.Add(this.DeleteFigureButton);
             this.Controls.Add(this.AddFigureButton);
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.MaximizeBox = false;
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Расчётчик объёма фигур";
             this.Load += new System.EventHandler(this.Form1_Load);

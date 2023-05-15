@@ -12,6 +12,8 @@ namespace ViewFigure
 		/// </summary>
 		private BindingList<FigureBase> _figureList;
 
+        private BindingList<FigureBase> _filteredList;
+
         /// <summary>
         /// ִכÿ פאיכמג
         /// </summary>
@@ -53,7 +55,9 @@ namespace ViewFigure
             {
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
-                    _figureList.RemoveAt(row.Index);
+                    _figureList.Remove(row.DataBoundItem as FigureBase);
+
+                    _filteredList.Remove(row.DataBoundItem as FigureBase);
                 }
             }
         }
@@ -81,8 +85,11 @@ namespace ViewFigure
             dataGridView.RowHeadersVisible = false;
             var source = new BindingSource(figures, null);
             dataGridView.DataSource = source;
-            dataGridView.AutoSizeColumnsMode =
-               DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView.Columns[0].Width = 130;
+            dataGridView.Columns[1].Width = 192;
+            dataGridView.Columns[2].Width = 125;
+            //dataGridView.AutoSizeColumnsMode =
+            //DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
             dataGridView.ColumnHeadersDefaultCellStyle.Alignment =
@@ -184,6 +191,7 @@ namespace ViewFigure
             newFilterForm.FigureFiltered += (sender, figureEventArgs) =>
             {
                 dataGridView1.DataSource = ((FigureListEventArgs)figureEventArgs).FigureList;
+                _filteredList = ((FigureListEventArgs)figureEventArgs).FigureList;
             };
         }
 

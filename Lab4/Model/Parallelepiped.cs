@@ -83,7 +83,7 @@ namespace Model
         {
             get
             {
-                return $"{Height} * {Width} * {Length}";
+                return $"H = {Height}, W = {Width}, L = {Length}";
             }
         }
 
@@ -101,7 +101,7 @@ namespace Model
         {
             get
             {
-                return Height * Width * Length;
+                return CheckNumber(Height * Width * Length);
             }
         }
 

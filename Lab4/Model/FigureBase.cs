@@ -42,6 +42,10 @@ namespace Model
             {
                 throw new ArgumentException("Число должно быть положительным.");
             }
+            else if (double.IsNaN(number))
+            {
+                throw new ArgumentException("Нечисловое значение!");
+            }
             else
             {
                 return number;

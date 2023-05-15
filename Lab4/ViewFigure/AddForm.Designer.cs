@@ -45,9 +45,9 @@ namespace ViewFigure
             // 
             // Random
             // 
-            this.Random.Location = new System.Drawing.Point(169, 51);
+            this.Random.Location = new System.Drawing.Point(180, 50);
             this.Random.Name = "Random";
-            this.Random.Size = new System.Drawing.Size(151, 29);
+            this.Random.Size = new System.Drawing.Size(140, 30);
             this.Random.TabIndex = 26;
             this.Random.Text = "Случайная фигура";
             this.Random.UseVisualStyleBackColor = true;
@@ -55,9 +55,9 @@ namespace ViewFigure
             // 
             // Cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(169, 267);
+            this.Cancel.Location = new System.Drawing.Point(180, 280);
             this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(151, 29);
+            this.Cancel.Size = new System.Drawing.Size(140, 30);
             this.Cancel.TabIndex = 25;
             this.Cancel.Text = "Отменить";
             this.Cancel.UseVisualStyleBackColor = true;
@@ -65,9 +65,9 @@ namespace ViewFigure
             // 
             // OK
             // 
-            this.OK.Location = new System.Drawing.Point(12, 267);
+            this.OK.Location = new System.Drawing.Point(20, 280);
             this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(151, 29);
+            this.OK.Size = new System.Drawing.Size(140, 30);
             this.OK.TabIndex = 23;
             this.OK.Text = "Ok";
             this.OK.UseVisualStyleBackColor = true;
@@ -76,16 +76,16 @@ namespace ViewFigure
             // comboBoxFigures
             // 
             this.comboBoxFigures.FormattingEnabled = true;
-            this.comboBoxFigures.Location = new System.Drawing.Point(12, 51);
+            this.comboBoxFigures.Location = new System.Drawing.Point(20, 52);
             this.comboBoxFigures.Name = "comboBoxFigures";
-            this.comboBoxFigures.Size = new System.Drawing.Size(151, 28);
+            this.comboBoxFigures.Size = new System.Drawing.Size(140, 28);
             this.comboBoxFigures.TabIndex = 22;
             this.comboBoxFigures.SelectedIndexChanged += new System.EventHandler(this.comboBoxFigeres_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 22);
+            this.label1.Location = new System.Drawing.Point(20, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 20);
             this.label1.TabIndex = 21;
@@ -93,33 +93,33 @@ namespace ViewFigure
             // 
             // addBallUserControl1
             // 
-            this.addBallUserControl1.Location = new System.Drawing.Point(20, 51);
+            this.addBallUserControl1.Location = new System.Drawing.Point(20, 20);
             this.addBallUserControl1.Name = "addBallUserControl1";
-            this.addBallUserControl1.Size = new System.Drawing.Size(231, 58);
+            this.addBallUserControl1.Size = new System.Drawing.Size(244, 58);
             this.addBallUserControl1.TabIndex = 27;
             // 
             // addParallelepipedUserControl1
             // 
-            this.addParallelepipedUserControl1.Location = new System.Drawing.Point(37, 25);
+            this.addParallelepipedUserControl1.Location = new System.Drawing.Point(20, 20);
             this.addParallelepipedUserControl1.Name = "addParallelepipedUserControl1";
-            this.addParallelepipedUserControl1.Size = new System.Drawing.Size(236, 125);
+            this.addParallelepipedUserControl1.Size = new System.Drawing.Size(252, 144);
             this.addParallelepipedUserControl1.TabIndex = 28;
             // 
             // addPyramidUserControl1
             // 
-            this.addPyramidUserControl1.Location = new System.Drawing.Point(37, 25);
+            this.addPyramidUserControl1.Location = new System.Drawing.Point(20, 20);
             this.addPyramidUserControl1.Name = "addPyramidUserControl1";
-            this.addPyramidUserControl1.Size = new System.Drawing.Size(228, 131);
+            this.addPyramidUserControl1.Size = new System.Drawing.Size(244, 131);
             this.addPyramidUserControl1.TabIndex = 29;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.addPyramidUserControl1);
             this.groupBox1.Controls.Add(this.addParallelepipedUserControl1);
             this.groupBox1.Controls.Add(this.addBallUserControl1);
-            this.groupBox1.Controls.Add(this.addPyramidUserControl1);
-            this.groupBox1.Location = new System.Drawing.Point(17, 97);
+            this.groupBox1.Location = new System.Drawing.Point(20, 100);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(303, 164);
+            this.groupBox1.Size = new System.Drawing.Size(300, 170);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Параметры фигуры";
@@ -129,7 +129,7 @@ namespace ViewFigure
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(333, 309);
+            this.ClientSize = new System.Drawing.Size(342, 328);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Random);
             this.Controls.Add(this.Cancel);
@@ -138,6 +138,7 @@ namespace ViewFigure
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "AddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление фигуры";

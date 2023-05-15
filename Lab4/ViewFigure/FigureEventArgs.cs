@@ -18,7 +18,11 @@
         /// </summary>
         public FigureBase Figure { get; private set; }
 
-        //TODO: XML
+        //TODO: XML (+)
+        /// <summary>
+        /// Конструктор события добавления фигуры.
+        /// </summary>
+        /// <param name="figure"></param>
         public FigureEventArgs(FigureBase figure)
         {
             Figure = figure;

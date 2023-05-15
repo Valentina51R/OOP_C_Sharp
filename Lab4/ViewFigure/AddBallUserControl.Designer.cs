@@ -36,7 +36,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 20);
+            this.label1.Location = new System.Drawing.Point(20, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 20);
             this.label1.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             // Radius
             // 
-            this.Radius.Location = new System.Drawing.Point(95, 18);
+            this.Radius.Location = new System.Drawing.Point(90, 20);
             this.Radius.Name = "Radius";
             this.Radius.Size = new System.Drawing.Size(125, 27);
             this.Radius.TabIndex = 1;
@@ -53,7 +53,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(223, 23);
+            this.label2.Location = new System.Drawing.Point(220, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(20, 20);
             this.label2.TabIndex = 2;
