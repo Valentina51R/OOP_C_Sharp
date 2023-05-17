@@ -1,5 +1,6 @@
 using Model;
 using System.ComponentModel;
+using System.Security.Policy;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
@@ -91,6 +92,7 @@ namespace ViewFigure
             dataGridView.Columns[0].Width = 130;
             dataGridView.Columns[1].Width = 192;
             dataGridView.Columns[2].Width = 125;
+            dataGridView.AllowUserToResizeColumns = false;
             //dataGridView.AutoSizeColumnsMode =
             //DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.DefaultCellStyle.Alignment =
