@@ -38,9 +38,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(20, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 20);
+            this.label1.Size = new System.Drawing.Size(56, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Радиус =";
+            this.label1.Text = "Радиус";
             // 
             // Radius
             // 

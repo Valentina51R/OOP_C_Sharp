@@ -11,12 +11,12 @@ namespace ViewFigure
         /// <summary>
 		/// Cписок фигур
 		/// </summary>
-		private BindingList<FigureBase> _figureList;
+		private BindingList<FigureBase> _figureList = new();
 
         /// <summary>
         /// Отфильтрованый список
         /// </summary>
-        private BindingList<FigureBase> _filteredList;
+        private BindingList<FigureBase> _filteredList = new();
 
         /// <summary>
         /// Для файлов
@@ -61,7 +61,7 @@ namespace ViewFigure
                 {
                     _figureList.Remove(row.DataBoundItem as FigureBase);
 
-                    //TODO: BUG
+                    //TODO: BUG(+)
                     _filteredList.Remove(row.DataBoundItem as FigureBase);
                 }
             }

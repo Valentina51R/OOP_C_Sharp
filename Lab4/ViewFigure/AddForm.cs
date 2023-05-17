@@ -21,22 +21,6 @@ namespace ViewFigure
         /// </summary>
         private FigureBase _figure;
 
-        //TODO: remove
-        /// <summary>
-        /// Задание фигуры.
-        /// </summary>
-        public FigureBase Figure
-        {
-            get
-            {
-                return _figure;
-            } 
-            set
-            {
-                _figure = value;
-            }
-        }
-
         /// <summary>
         /// Событие добавления фигуры.
         /// </summary>
@@ -53,11 +37,10 @@ namespace ViewFigure
         /// </summary>
         private UserControl userControl;
 
-        //TODO: XML
+        //TODO: XML (+)
         /// <summary>
         /// Форма добавления фигур.
         /// </summary>
-        /// <param name="_figureList"></param>
         public AddForm()
         {
             InitializeComponent();
