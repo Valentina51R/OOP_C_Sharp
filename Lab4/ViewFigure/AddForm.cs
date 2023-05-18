@@ -17,11 +17,6 @@ namespace ViewFigure
     public partial class AddForm : Form
     {
         /// <summary>
-        /// Фигура.
-        /// </summary>
-        private FigureBase _figure;
-
-        /// <summary>
         /// Событие добавления фигуры.
         /// </summary>
         public EventHandler<EventArgs> FigureAdded;
@@ -37,7 +32,6 @@ namespace ViewFigure
         /// </summary>
         private UserControl userControl;
 
-        //TODO: XML (+)
         /// <summary>
         /// Форма добавления фигур.
         /// </summary>
