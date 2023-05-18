@@ -22,8 +22,6 @@ namespace ViewFigure
         {
             const int backSpace = 8;
 
-            //TODO: symbols const (+)
-            //цифры, клавиша BackSpace и запятая а ASCII (+)
             char number = e.KeyChar;
             if ((e.KeyChar < '0' || e.KeyChar > '9')
                 && number != backSpace

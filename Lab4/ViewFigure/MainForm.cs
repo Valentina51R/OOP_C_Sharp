@@ -61,6 +61,7 @@ namespace ViewFigure
                 {
                     _figureList.Remove(row.DataBoundItem as FigureBase);
 
+                    //TODO: BUG
                     _filteredList.Remove(row.DataBoundItem as FigureBase);
                 }
             }

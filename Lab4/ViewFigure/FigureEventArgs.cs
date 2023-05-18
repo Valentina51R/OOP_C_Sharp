@@ -18,7 +18,6 @@
         /// </summary>
         public FigureBase Figure { get; private set; }
 
-        //TODO: XML (+)
         /// <summary>
         /// Конструктор события добавления фигуры.
         /// </summary>
