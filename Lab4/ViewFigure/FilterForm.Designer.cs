@@ -33,7 +33,7 @@
             this.VolumeCheckBox = new System.Windows.Forms.CheckBox();
             this.ParallelepipedCheckBox = new System.Windows.Forms.CheckBox();
             this.PyramidCheckBox = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label1_m = new System.Windows.Forms.Label();
             this.VolumeTextBox = new System.Windows.Forms.TextBox();
             this.BallCheckBox = new System.Windows.Forms.CheckBox();
             this.FilterButton = new System.Windows.Forms.Button();
@@ -45,7 +45,7 @@
             this.groupBox1.Controls.Add(this.VolumeCheckBox);
             this.groupBox1.Controls.Add(this.ParallelepipedCheckBox);
             this.groupBox1.Controls.Add(this.PyramidCheckBox);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label1_m);
             this.groupBox1.Controls.Add(this.VolumeTextBox);
             this.groupBox1.Controls.Add(this.BallCheckBox);
             this.groupBox1.Location = new System.Drawing.Point(20, 20);
@@ -86,14 +86,14 @@
             this.PyramidCheckBox.Text = "Пирамида";
             this.PyramidCheckBox.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // label1_m
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(160, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "м";
+            this.label1_m.AutoSize = true;
+            this.label1_m.Location = new System.Drawing.Point(160, 119);
+            this.label1_m.Name = "label1_m";
+            this.label1_m.Size = new System.Drawing.Size(20, 20);
+            this.label1_m.TabIndex = 3;
+            this.label1_m.Text = "м";
             // 
             // VolumeTextBox
             // 
@@ -146,7 +146,7 @@
         #endregion
 
         private GroupBox groupBox1;
-        private Label label1;
+        private Label label1_m;
         private TextBox VolumeTextBox;
         private CheckBox BallCheckBox;
         private Button FilterButton;

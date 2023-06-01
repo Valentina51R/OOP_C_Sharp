@@ -28,43 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label_Hight = new System.Windows.Forms.Label();
+            this.label_Lenght = new System.Windows.Forms.Label();
+            this.label_Wedth = new System.Windows.Forms.Label();
             this.Height = new System.Windows.Forms.TextBox();
             this.Lenght = new System.Windows.Forms.TextBox();
             this.Width = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label_m1 = new System.Windows.Forms.Label();
+            this.label_m2 = new System.Windows.Forms.Label();
+            this.label_m3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // label_Hight
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Высота";
+            this.label_Hight.AutoSize = true;
+            this.label_Hight.Location = new System.Drawing.Point(20, 20);
+            this.label_Hight.Name = "label_Hight";
+            this.label_Hight.Size = new System.Drawing.Size(59, 20);
+            this.label_Hight.TabIndex = 0;
+            this.label_Hight.Text = "Высота";
             // 
-            // label2
+            // label_Lenght
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Длина";
+            this.label_Lenght.AutoSize = true;
+            this.label_Lenght.Location = new System.Drawing.Point(20, 60);
+            this.label_Lenght.Name = "label_Lenght";
+            this.label_Lenght.Size = new System.Drawing.Size(53, 20);
+            this.label_Lenght.TabIndex = 1;
+            this.label_Lenght.Text = "Длина";
             // 
-            // label3
+            // label_Wedth
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 100);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Ширина";
+            this.label_Wedth.AutoSize = true;
+            this.label_Wedth.Location = new System.Drawing.Point(20, 100);
+            this.label_Wedth.Name = "label_Wedth";
+            this.label_Wedth.Size = new System.Drawing.Size(67, 20);
+            this.label_Wedth.TabIndex = 2;
+            this.label_Wedth.Text = "Ширина";
             // 
             // Height
             // 
@@ -90,46 +90,46 @@
             this.Width.TabIndex = 5;
             this.Width.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Width_KeyPress);
             // 
-            // label4
+            // label_m1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(220, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "м";
+            this.label_m1.AutoSize = true;
+            this.label_m1.Location = new System.Drawing.Point(220, 20);
+            this.label_m1.Name = "label_m1";
+            this.label_m1.Size = new System.Drawing.Size(20, 20);
+            this.label_m1.TabIndex = 6;
+            this.label_m1.Text = "м";
             // 
-            // label5
+            // label_m2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(220, 60);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(20, 20);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "м";
+            this.label_m2.AutoSize = true;
+            this.label_m2.Location = new System.Drawing.Point(220, 60);
+            this.label_m2.Name = "label_m2";
+            this.label_m2.Size = new System.Drawing.Size(20, 20);
+            this.label_m2.TabIndex = 7;
+            this.label_m2.Text = "м";
             // 
-            // label6
+            // label_m3
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(220, 100);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(20, 20);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "м";
+            this.label_m3.AutoSize = true;
+            this.label_m3.Location = new System.Drawing.Point(220, 100);
+            this.label_m3.Name = "label_m3";
+            this.label_m3.Size = new System.Drawing.Size(20, 20);
+            this.label_m3.TabIndex = 8;
+            this.label_m3.Text = "м";
             // 
             // AddParallelepipedUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label_m3);
+            this.Controls.Add(this.label_m2);
+            this.Controls.Add(this.label_m1);
             this.Controls.Add(this.Width);
             this.Controls.Add(this.Lenght);
             this.Controls.Add(this.Height);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_Wedth);
+            this.Controls.Add(this.label_Lenght);
+            this.Controls.Add(this.label_Hight);
             this.Name = "AddParallelepipedUserControl";
             this.Size = new System.Drawing.Size(250, 140);
             this.ResumeLayout(false);
@@ -139,14 +139,14 @@
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
+        private Label label_Hight;
+        private Label label_Lenght;
+        private Label label_Wedth;
         private TextBox Height;
         private TextBox Lenght;
         private TextBox Width;
-        private Label label4;
-        private Label label5;
-        private Label label6;
+        private Label label_m1;
+        private Label label_m2;
+        private Label label_m3;
     }
 }

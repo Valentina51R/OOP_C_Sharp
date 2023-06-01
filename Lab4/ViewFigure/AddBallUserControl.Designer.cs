@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_Radius = new System.Windows.Forms.Label();
             this.Radius = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_m = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // label_Radius
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Радиус";
+            this.label_Radius.AutoSize = true;
+            this.label_Radius.Location = new System.Drawing.Point(20, 20);
+            this.label_Radius.Name = "label_Radius";
+            this.label_Radius.Size = new System.Drawing.Size(56, 20);
+            this.label_Radius.TabIndex = 0;
+            this.label_Radius.Text = "Радиус";
             // 
             // Radius
             // 
@@ -50,22 +50,22 @@
             this.Radius.TabIndex = 1;
             this.Radius.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Radius_KeyPress);
             // 
-            // label2
+            // label_m
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(220, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "м";
+            this.label_m.AutoSize = true;
+            this.label_m.Location = new System.Drawing.Point(220, 20);
+            this.label_m.Name = "label_m";
+            this.label_m.Size = new System.Drawing.Size(20, 20);
+            this.label_m.TabIndex = 2;
+            this.label_m.Text = "м";
             // 
             // AddBallUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label_m);
             this.Controls.Add(this.Radius);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_Radius);
             this.Name = "AddBallUserControl";
             this.Size = new System.Drawing.Size(250, 60);
             this.ResumeLayout(false);
@@ -75,8 +75,8 @@
 
         #endregion
 
-        private Label label1;
+        private Label label_Radius;
         private TextBox Radius;
-        private Label label2;
+        private Label label_m;
     }
 }

@@ -35,7 +35,7 @@ namespace ViewFigure
             this.Cancel = new System.Windows.Forms.Button();
             this.OK = new System.Windows.Forms.Button();
             this.comboBoxFigures = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_Chouse = new System.Windows.Forms.Label();
             this.addBallUserControl1 = new ViewFigure.AddBallUserControl();
             this.addParallelepipedUserControl1 = new ViewFigure.AddParallelepipedUserControl();
             this.addPyramidUserControl1 = new ViewFigure.AddPyramidUserControl();
@@ -82,14 +82,14 @@ namespace ViewFigure
             this.comboBoxFigures.TabIndex = 22;
             this.comboBoxFigures.SelectedIndexChanged += new System.EventHandler(this.comboBoxFigeres_SelectedIndexChanged);
             // 
-            // label1
+            // label_Chouse
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 20);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Выберете фигуру";
+            this.label_Chouse.AutoSize = true;
+            this.label_Chouse.Location = new System.Drawing.Point(20, 20);
+            this.label_Chouse.Name = "label_Chouse";
+            this.label_Chouse.Size = new System.Drawing.Size(129, 20);
+            this.label_Chouse.TabIndex = 21;
+            this.label_Chouse.Text = "Выберете фигуру";
             // 
             // addBallUserControl1
             // 
@@ -135,7 +135,7 @@ namespace ViewFigure
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.comboBoxFigures);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_Chouse);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -155,7 +155,7 @@ namespace ViewFigure
         private Button Cancel;
         private Button OK;
         private ComboBox comboBoxFigures;
-        private Label label1;
+        private Label label_Chouse;
         private AddBallUserControl addBallUserControl1;
         private AddParallelepipedUserControl addParallelepipedUserControl1;
         private AddPyramidUserControl addPyramidUserControl1;

@@ -93,8 +93,6 @@ namespace ViewFigure
             dataGridView.Columns[1].Width = 192;
             dataGridView.Columns[2].Width = 125;
             dataGridView.AllowUserToResizeColumns = false;
-            //dataGridView.AutoSizeColumnsMode =
-            //DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
             dataGridView.ColumnHeadersDefaultCellStyle.Alignment =
